@@ -28,7 +28,7 @@ const socialLinks: SocialLink[] = [
     {
         title: "LinkedIn: @kereszteszsolt",
         url: "https://www.linkedin.com/in/kereszteszsolt",
-        description: "Professional profile and networking.",
+        description: "Professional profileInfo and networking.",
         icon: "icons/linkedin-app-icon.png"
     },
     {

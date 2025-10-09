@@ -17,6 +17,8 @@
     --font-sans: "Inter", system-ui, sans-serif;
     --font-heading: "Poppins", sans-serif;
 
+    --primary-caption-color: antiquewhite;
+
     --radius-md: 0.75rem;
     --radius-xl: 1.5rem;
     --shadow-md: 0 2px 8px rgb(0 0 0 / 0.1);

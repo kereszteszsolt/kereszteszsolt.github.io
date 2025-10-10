@@ -43,14 +43,16 @@ const filteredCategories = computed(() => {
         </option>
       </select>
     </div>
-    <div v-for="category in filteredCategories" :key="category.title" class="mb-6">
-      <div class="text-lg font-bold text-primary mb-2">{{ category.title }}</div>
-      <div v-for="sub in category.subcategories" :key="sub.title" class="mb-2">
-        <div class="font-semibold text-gray-700">{{ sub.title }}</div>
-        <div class="flex flex-wrap gap-2 mt-1">
-          <span v-for="skill in sub.skills" :key="skill.name" class="bg-gray-100 rounded px-3 py-1 text-sm text-gray-800 shadow">
-            {{ skill.name }}
-          </span>
+    <div class="flex flex-wrap -mx-2">
+      <div v-for="category in filteredCategories" :key="category.title" class="w-full md:w-1/2 px-2 mb-6">
+        <div class="text-lg font-bold text-primary mb-2">{{ category.title }}</div>
+        <div v-for="sub in category.subcategories" :key="sub.title" class="mb-2">
+          <div class="font-semibold text-gray-700">{{ sub.title }}</div>
+          <div class="flex flex-wrap gap-2 mt-1">
+            <span v-for="skill in sub.skills" :key="skill.name" class="bg-gray-100 rounded px-3 py-1 text-sm text-gray-800 shadow">
+              {{ skill.name }}
+            </span>
+          </div>
         </div>
       </div>
     </div>

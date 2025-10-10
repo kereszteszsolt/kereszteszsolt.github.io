@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import SectionContainer from '../layout/SectionContainer.vue';
+import SectionDivider from '../layout/SectionDivider.vue';
 import { softwareDevelopment } from '@/data/software-development.ts';
 import { personalProjects } from '@/data/personal-projects.ts';
 import { ref, computed, nextTick } from 'vue';
@@ -143,6 +144,7 @@ defineExpose({
         </div>
       </div>
     </div>
+    <SectionDivider />
   </SectionContainer>
 </template>
 

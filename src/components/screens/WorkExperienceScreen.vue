@@ -16,11 +16,13 @@
         <button @click="handleShowSkillsForCompany(exp.companyId)" class="mt-2 bg-gray-200 text-primary px-3 py-1 rounded hover:bg-primary hover:text-white transition">See Related Skills</button>
       </div>
     </div>
+    <SectionDivider />
   </SectionContainer>
 </template>
 
 <script setup lang="ts">
 import SectionContainer from "@/components/layout/SectionContainer.vue";
+import SectionDivider from "@/components/layout/SectionDivider.vue";
 import { workExperience } from "@/data/work-expereince.ts";
 import { computed, defineEmits } from "vue";
 

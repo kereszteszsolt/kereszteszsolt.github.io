@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import SectionContainer from '@/components/layout/SectionContainer.vue';
+import SectionDivider from '@/components/layout/SectionDivider.vue';
 import {profileInfo} from '@/data/profile-info.ts';
 
 const today = new Date('2025-10-09').toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -26,6 +27,7 @@ const today = new Date('2025-10-09').toLocaleDateString('en-GB', { year: 'numeri
         <div v-if="card.info" class="text-xs text-gray-400 mt-1 text-center">{{ card.info }}</div>
       </div>
     </div>
+    <SectionDivider />
   </SectionContainer>
 </template>
 

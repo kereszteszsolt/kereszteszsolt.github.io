@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import SectionContainer from "@/components/layout/SectionContainer.vue";
+import SectionDivider from "@/components/layout/SectionDivider.vue";
 import { socialLinks } from '@/data/social-profiles.ts';
 </script>
 
@@ -22,6 +23,7 @@ import { socialLinks } from '@/data/social-profiles.ts';
       </div>
     </div>
     <div class="text-gray-400 text-xs mt-10 text-center">(*) STEM: Science, Technology, Engineering, and Math</div>
+    <SectionDivider />
   </SectionContainer>
 </template>
 

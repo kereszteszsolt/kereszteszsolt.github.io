@@ -1,30 +1,29 @@
 <script setup lang="ts">
 import SectionContainer from "@/components/layout/SectionContainer.vue";
 import { workExperience } from "@/data/work-expereince.ts";
-import { softwareDevelopment } from "@/data/software-development.ts";
-import { computed } from "vue";
-import type { Company, Skill, SkillCategory, SkillSubcategory } from '@/models/skills.model';
+import { computed, defineEmits } from "vue";
 
-// For a given companyId, filter categories/subcategories/skills by usedAt
-function getFilteredCategoriesForCompany(companyId: Company) {
-  return softwareDevelopment.categories
-    .map((category) => {
-      const filteredSubcategories = category.subcategories
-        .map((sub) => {
-          const filteredSkills = sub.skills.filter(
-            (skill) => skill.usedAt && skill.usedAt.includes(companyId)
-          );
-          return { ...sub, skills: filteredSkills };
-        })
-        .filter((sub) => sub.skills.length > 0);
-      return { ...category, subcategories: filteredSubcategories };
-    })
-    .filter((category) => category.subcategories.length > 0);
+const emit = defineEmits(["jumpToSkills", "showSkillsForCompany", "showAllWorkSkills"]);
+
+const totalYears = computed(() => workExperience.reduce((sum, exp) => sum + (Number(exp.years) || 0), 0));
+const totalCompanies = computed(() => workExperience.length);
+
+function handleShowSkillsForCompany(companyId) {
+  emit("showSkillsForCompany", companyId);
+}
+function handleShowAllWorkSkills() {
+  emit("showAllWorkSkills");
 }
 </script>
 
 <template>
   <SectionContainer id="work-experience">
+    <div class="mb-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">Work Experience</h2>
+      <div class="text-gray-700 mb-1">Total years of experience: <span class="font-semibold">{{ totalYears }}</span></div>
+      <div class="text-gray-700 mb-4">Total companies: <span class="font-semibold">{{ totalCompanies }}</span></div>
+      <button @click="handleShowAllWorkSkills" class="bg-primary text-white px-4 py-2 rounded shadow hover:bg-primary-dark transition">See All Work Experience Skills</button>
+    </div>
     <div class="work-experience-list">
       <div v-for="exp in workExperience" :key="exp.companyId" class="work-experience-card">
         <div class="text-lg font-bold text-primary mb-1">{{ exp.company }}</div>
@@ -32,20 +31,7 @@ function getFilteredCategoriesForCompany(companyId: Company) {
         <div class="text-sm text-gray-500 mb-1">
           {{ exp.startDate }} - {{ exp.endDate }} ({{ exp.years }} years)
         </div>
-        <div v-if="getFilteredCategoriesForCompany(exp.companyId).length" class="skills-masonry-grid mt-4">
-          <div v-for="category in getFilteredCategoriesForCompany(exp.companyId)" :key="category.title" class="skills-masonry-item">
-            <div class="text-base font-bold text-primary mb-2">{{ category.title }}</div>
-            <div v-for="sub in category.subcategories" :key="sub.title" class="mb-2">
-              <div class="font-semibold text-gray-700">{{ sub.title }}</div>
-              <div class="flex flex-wrap gap-2 mt-1">
-                <span v-for="skill in sub.skills" :key="skill.name" class="bg-gray-100 rounded px-3 py-1 text-sm text-gray-800 shadow">
-                  {{ skill.name }}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div v-else class="text-xs text-gray-400 mt-4">No skills recorded for this company.</div>
+        <button @click="handleShowSkillsForCompany(exp.companyId)" class="mt-2 bg-gray-200 text-primary px-3 py-1 rounded hover:bg-primary hover:text-white transition">See Related Skills</button>
       </div>
     </div>
   </SectionContainer>
@@ -63,23 +49,5 @@ function getFilteredCategoriesForCompany(companyId: Company) {
   border-radius: 0.5rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   padding: 1.5rem 1rem;
-}
-.skills-masonry-grid {
-  columns: 2;
-  column-gap: 1.5rem;
-}
-.skills-masonry-item {
-  break-inside: avoid;
-  background: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  display: block;
-}
-@media (max-width: 768px) {
-  .skills-masonry-grid {
-    columns: 1;
-  }
 }
 </style>

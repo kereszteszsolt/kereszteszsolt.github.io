@@ -12,9 +12,9 @@ export const softwareDevelopment: SkillGroup = {
                 {
                     title: "Frameworks & Libraries",
                     skills: [
-                        {name: "Angular", type: ["work-experience", "personal-projects"], usedAt: ['msg-systems']},
-                        {name: "React", type: ["personal-projects", "work-experience"], usedAt: ['msg-systems']},
-                        {name: "Vue", type: ["experimental"]},
+                        {name: "Angular", type: ["work-experience", "personal-projects"], usedAt: ['msg-systems'], personalProjects: ['ollama-chat']},
+                        {name: "React", type: ["personal-projects", "work-experience"], usedAt: ['msg-systems'], personalProjects: ['planning-poker']},
+                        {name: "Vue", type: ["experimental"], personalProjects: ['this-website', 'focus-guard']},
                         {name: "Next.js", type: ["personal-projects"]},
                         {name: "Vuex", type: ["experimental"]},
                         {name: "NestJS", type: ["personal-projects"]},
@@ -66,7 +66,7 @@ export const softwareDevelopment: SkillGroup = {
                         {name: "Node.js", type: ["personal-projects"]},
                         {name: "Express.js", type: ["personal-projects"]},
                         {name: "C#", type: ["work-experience"]},
-                        {name: ".NET", type: ["work-experience"]},
+                        {name: ".NET", type: ["work-experience"], usedAt: ['ikonsoft']},
                     ],
                 },
                 {

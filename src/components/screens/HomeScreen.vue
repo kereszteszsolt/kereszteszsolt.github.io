@@ -8,12 +8,14 @@ const today = new Date('2025-10-09').toLocaleDateString('en-GB', { year: 'numeri
 <template>
   <SectionContainer id="home">
     <div class="flex flex-col items-center gap-4 mb-8">
-      <img :src="profileInfo.photo" alt="Profile" class="w-32 h-32 rounded-full border-4 border-primary object-cover shadow" />
-      <div class="text-2xl font-bold text-gray-800">
-        <span class="block">Last name: <span class="text-primary">{{ profileInfo.lastName }}</span></span>
-        <span class="block">First name: <span class="text-primary">{{ profileInfo.firstName }}</span></span>
+      <img :src="profileInfo.photo" alt="Profile" class="w-32 h-32 rounded-full border-4 border-tertiary object-cover shadow" />
+      <div class="text-2xl font-bold text-primary">
+        {{ profileInfo.fullName }}
       </div>
       <div class="text-lg text-gray-600">{{ profileInfo.title }}</div>
+      <div class="text-xs text-gray-400 italic text-center max-w-xs">
+        <span>Info: The full name above is from a dedicated field. Family name: <b>{{ profileInfo.lastName }}</b>, given name: <b>{{ profileInfo.firstName }}</b>.</span>
+      </div>
       <div class="text-sm text-gray-400">{{ today }}</div>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full">

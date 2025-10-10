@@ -18,7 +18,7 @@ const defaultPicture = 'https://ui-avatars.com/api/?name=User&background=ccc&col
 </script>
 
 <template>
-  <header class="bg-primary text-primary-caption py-4 shadow-md w-full h-[4rem] flex items-center">
+  <header class="bg-primary text-primary-caption py-4 shadow-md w-full h-[4rem] flex items-center fixed top-0 left-0 z-50">
     <div class="flex items-center justify-between px-4 w-full">
       <!-- Profile Picture -->
       <img
@@ -54,7 +54,7 @@ const defaultPicture = 'https://ui-avatars.com/api/?name=User&background=ccc&col
       </button>
     </div>
     <!-- Mobile Navigation -->
-    <nav v-if="menuOpen" class="md:hidden flex flex-col gap-2 px-4 pb-2 absolute top-full left-0 w-full bg-primary z-40">
+    <nav v-if="menuOpen" class="md:hidden flex flex-col gap-2 px-4 py-4 absolute top-[4rem] left-0 w-full bg-primary shadow-lg z-50">
       <div class="text-center text-lg font-bold text-primary-caption mb-2">{{ props.activeSectionLabel }}</div>
       <button
         v-for="section in props.sections"

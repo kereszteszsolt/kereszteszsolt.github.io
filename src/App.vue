@@ -20,36 +20,53 @@ const sections = [
 ];
 
 const activeSection = ref("home");
+const mainElement = ref<HTMLElement | null>(null);
 
 function handleNavigate(id: string) {
   const el = document.getElementById(id);
-  if (el) {
-    el.scrollIntoView({behavior: "smooth", block: "start"});
+  if (el && mainElement.value) {
+    const offsetTop = el.offsetTop - mainElement.value.offsetTop;
+    mainElement.value.scrollTo({
+      top: offsetTop - 80, // Offset for AppBar (64px) + some padding
+      behavior: "smooth"
+    });
   }
 }
 
 function updateActiveSection() {
-  let found = false;
+  if (!mainElement.value) return;
+
+  const scrollPosition = mainElement.value.scrollTop + 150; // Account for AppBar height + offset
+
+  let currentSection = sections[0]?.id || "home";
+
   for (const section of sections) {
     const el = document.getElementById(section.id);
-    if (el) {
-      const rect = el.getBoundingClientRect();
-      if (rect.top <= 100 && rect.bottom > 100) {
-        activeSection.value = section.id;
-        found = true;
-        break;
+    if (el && mainElement.value) {
+      // Get the element's position relative to the main container
+      const offsetTop = el.offsetTop - mainElement.value.offsetTop;
+      if (scrollPosition >= offsetTop) {
+        currentSection = section.id;
       }
     }
   }
-  if (!found) activeSection.value = sections[0].id;
+
+  activeSection.value = currentSection;
 }
 
 onMounted(() => {
-  window.addEventListener("scroll", updateActiveSection);
+  if (mainElement.value) {
+    mainElement.value.addEventListener("scroll", updateActiveSection);
+    updateActiveSection();
+  }
 });
+
 onUnmounted(() => {
-  window.removeEventListener("scroll", updateActiveSection);
+  if (mainElement.value) {
+    mainElement.value.removeEventListener("scroll", updateActiveSection);
+  }
 });
+
 </script>
 
 <template>
@@ -61,7 +78,7 @@ onUnmounted(() => {
         :active-section-label="sections.find(s => s.id === activeSection)?.label || ''"
         @navigate="handleNavigate"
     />
-    <main class="min-h-[calc(100vh-4rem-3rem)] overflow-y-auto">
+    <main ref="mainElement" class="min-h-[calc(100vh-3rem)] overflow-y-auto pt-[4rem]">
       <HomeScreen/>
       <WorkExperienceScreen/>
       <SkillsScreen/>

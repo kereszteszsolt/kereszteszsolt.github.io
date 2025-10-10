@@ -1,0 +1,74 @@
+<script setup lang="ts">
+import { ref, defineEmits } from 'vue';
+
+interface SectionNav {
+  id: string;
+  label: string;
+}
+const props = defineProps<{
+  profileImage: string;
+  sections: SectionNav[];
+  activeSection: string;
+  activeSectionLabel: string;
+}>();
+
+const emit = defineEmits(['navigate']);
+const menuOpen = ref(false);
+const defaultPicture = 'https://ui-avatars.com/api/?name=User&background=ccc&color=fff&rounded=true';
+</script>
+
+<template>
+  <header class="bg-primary text-primary-caption py-4 shadow-md w-full min-h-[4rem] flex items-center">
+    <div class="flex items-center justify-between px-4 w-full">
+      <!-- Profile Picture -->
+      <img
+        :src="props.profileImage || defaultPicture"
+        alt="Profile Picture"
+        class="w-12 h-12 rounded-full object-cover border-2 border-tertiary shadow"
+      />
+      <!-- Active Section Label (centered) -->
+      <div class="hidden md:block flex-1 text-center text-lg font-bold text-primary-caption">
+        {{ props.activeSectionLabel }}
+      </div>
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex gap-2">
+        <button
+          v-for="section in props.sections"
+          :key="section.id"
+          :class="[ 'px-4 py-2 rounded-lg transition',
+            props.activeSection === section.id ? 'bg-secondary text-white' : 'bg-primary text-primary-caption hover:bg-secondary hover:text-white']"
+          @click="emit('navigate', section.id)"
+        >
+          {{ section.label }}
+        </button>
+      </nav>
+      <!-- Burger Menu Button -->
+      <button
+        class="md:hidden flex flex-col justify-center items-center w-10 h-10"
+        @click="menuOpen = !menuOpen"
+        aria-label="Toggle navigation menu"
+      >
+        <span class="block w-6 h-0.5 bg-secondary mb-1"></span>
+        <span class="block w-6 h-0.5 bg-secondary mb-1"></span>
+        <span class="block w-6 h-0.5 bg-secondary"></span>
+      </button>
+    </div>
+    <!-- Mobile Navigation -->
+    <nav v-if="menuOpen" class="md:hidden flex flex-col gap-2 px-4 pb-2 absolute top-full left-0 w-full bg-primary z-40">
+      <div class="text-center text-lg font-bold text-primary-caption mb-2">{{ props.activeSectionLabel }}</div>
+      <button
+        v-for="section in props.sections"
+        :key="section.id"
+        :class="[ 'px-4 py-2 rounded-lg transition',
+          props.activeSection === section.id ? 'bg-secondary text-white' : 'bg-primary text-primary-caption hover:bg-secondary hover:text-white']"
+        @click="() => { emit('navigate', section.id); menuOpen = false; }"
+      >
+        {{ section.label }}
+      </button>
+    </nav>
+  </header>
+</template>
+
+<style scoped>
+/* No additional styles needed, Tailwind handles responsiveness and layout */
+</style>

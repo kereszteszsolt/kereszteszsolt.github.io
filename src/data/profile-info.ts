@@ -1,6 +1,6 @@
 import type { ProfileInfo } from "@/models/profile-info.model";
 
-const profileInfo: ProfileInfo = {
+export const profileInfo: ProfileInfo = {
     fullName: "Keresztes Zsolt",
     firstName: "Zsolt",
     lastName: "Keresztes",

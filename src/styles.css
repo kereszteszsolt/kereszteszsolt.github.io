@@ -12,12 +12,13 @@
     --color-tertiary: #00bfff;       /* deepskyblue */
     --color-neutral: #fffaf0;        /* floralwhite */
     --color-neutral-variant: #f5f5f5;/* whitesmoke */
+    --color-neutral-variant-darker: #e5e5e5; /* slightly darker than whitesmoke */
     --color-error: #ac1010;          /* darkred */
 
     --font-sans: "Inter", system-ui, sans-serif;
     --font-heading: "Poppins", sans-serif;
 
-    --primary-caption-color: antiquewhite;
+    --color-primary-caption: antiquewhite;
 
     --radius-md: 0.75rem;
     --radius-xl: 1.5rem;
@@ -25,25 +26,7 @@
 }
 
 html {
-    font-family: var(--font-sans);
+    font-family: var(--font-sans), serif;
     color: var(--color-secondary);
     background-color: var(--color-neutral);
 }
-
-body {
-    @apply bg-[var(--color-neutral)] text-[var(--color-secondary)] font-sans;
-}
-
-h1, h2, h3 {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
-}
-
-section {
-    @apply p-6 rounded-xl bg-[var(--color-neutral-variant)] shadow-md;
-}
-
-button {
-    @apply px-4 py-2 rounded-lg text-white bg-[var(--color-primary)] hover:bg-[var(--color-secondary)] transition;
-}
-

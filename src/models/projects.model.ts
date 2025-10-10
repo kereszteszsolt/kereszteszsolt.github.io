@@ -8,6 +8,7 @@ export interface Link {
 export interface SocialLink extends Link {
     description: string;
     icon?: string;
+    identifier: string;
 }
 
 export interface Project {

@@ -27,7 +27,7 @@ function handleNavigate(id: string) {
   if (el && mainElement.value) {
     const offsetTop = el.offsetTop - mainElement.value.offsetTop;
     mainElement.value.scrollTo({
-      top: offsetTop - 80, // Offset for AppBar (64px) + some padding
+      top: offsetTop-64, // Offset for AppBar (64px) + some padding
       behavior: "smooth"
     });
   }
@@ -57,7 +57,7 @@ function updateActiveSection() {
 onMounted(() => {
   if (mainElement.value) {
     mainElement.value.addEventListener("scroll", updateActiveSection);
-    updateActiveSection();
+ //   updateActiveSection();
   }
 });
 

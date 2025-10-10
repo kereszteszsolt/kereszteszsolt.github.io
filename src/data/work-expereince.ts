@@ -9,24 +9,16 @@ const workExperience: WorkExperience[] = [
         startDate: "2013-Apr",
         endDate: "2016-Jun",
         years: 3,
-        skillsUsed: softwareDevelopment.categories.filter((category) =>
-            category.subcategories.some((sub) =>
-                sub.skills.some((skill) => skill.usedAt?.includes("ikonsoft"))
-            )
-        ),
+        skillsUsed: []
     },
     {
         company: "msg systems AG",
         companyId: "msg-systems",
         position: "Software Engineer",
         startDate: "2016-Jul",
-        endDate: "2023-Dec",
+        endDate: "present",
         years: 7,
-        skillsUsed: softwareDevelopment.categories.filter((category) =>
-            category.subcategories.some((sub) =>
-                sub.skills.some((skill) => skill.usedAt?.includes("msg-systems"))
-            )
-        ),
+        skillsUsed: []
     },
 ];
 

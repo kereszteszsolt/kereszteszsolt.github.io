@@ -1,12 +1,12 @@
 <script setup lang="ts">
 
-import SetionContainer from "@/components/layout/SetionContainer.vue";
+import SectionContainer from "@/components/layout/SectionContainer.vue";
 </script>
 
 <template>
-  <SetionContainer id="projects">
-    projects
-  </SetionContainer>
+  <SectionContainer id="projects">
+    <div class="w-full h-full bg-accent-500">projects</div>
+  </SectionContainer>
 </template>
 
 <style scoped>

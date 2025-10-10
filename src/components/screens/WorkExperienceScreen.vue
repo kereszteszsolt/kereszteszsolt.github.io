@@ -1,14 +1,14 @@
 <script setup lang="ts">
 
-import SetionContainer from "@/components/layout/SetionContainer.vue";
+import SectionContainer from "@/components/layout/SectionContainer.vue";
 </script>
 
 <template>
-  <SetionContainer id="work-experience">
+  <SectionContainer id="work-experience">
     <div class="w-full h-full bg-green-400">
       work experience
     </div>
-  </SetionContainer>
+  </SectionContainer>
 </template>
 
 <style scoped>

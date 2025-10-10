@@ -43,8 +43,8 @@ const filteredCategories = computed(() => {
         </option>
       </select>
     </div>
-    <div class="flex flex-wrap -mx-2">
-      <div v-for="category in filteredCategories" :key="category.title" class="w-full md:w-1/2 px-2 mb-6">
+    <div class="skills-masonry-grid">
+      <div v-for="category in filteredCategories" :key="category.title" class="skills-masonry-item">
         <div class="text-lg font-bold text-primary mb-2">{{ category.title }}</div>
         <div v-for="sub in category.subcategories" :key="sub.title" class="mb-2">
           <div class="font-semibold text-gray-700">{{ sub.title }}</div>
@@ -60,5 +60,22 @@ const filteredCategories = computed(() => {
 </template>
 
 <style scoped>
-
+.skills-masonry-grid {
+  columns: 2;
+  column-gap: 1.5rem;
+}
+.skills-masonry-item {
+  break-inside: avoid;
+  background: var(--color-neutral);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+@media (max-width: 768px) {
+  .skills-masonry-grid {
+    columns: 1;
+  }
+}
 </style>

@@ -21,13 +21,14 @@ const sections = [
 
 const activeSection = ref("home");
 const mainElement = ref<HTMLElement | null>(null);
+const skillsScreenRef = ref<InstanceType<typeof SkillsScreen> | null>(null);
 
 function handleNavigate(id: string) {
   const el = document.getElementById(id);
   if (el && mainElement.value) {
     const offsetTop = el.offsetTop - mainElement.value.offsetTop;
     mainElement.value.scrollTo({
-      top: offsetTop-64, // Offset for AppBar (64px) + some padding
+      top: offsetTop,
       behavior: "smooth"
     });
   }
@@ -54,6 +55,30 @@ function updateActiveSection() {
   activeSection.value = currentSection;
 }
 
+function handleShowSkillsForCompany(companyId: string) {
+  if (skillsScreenRef.value) {
+    skillsScreenRef.value.handleShowSkillsForCompany(companyId);
+  }
+}
+
+function handleShowAllWorkSkills() {
+  if (skillsScreenRef.value) {
+    skillsScreenRef.value.handleShowAllWorkSkills();
+  }
+}
+
+function handleShowSkillsForProject(projectId: string) {
+  if (skillsScreenRef.value) {
+    skillsScreenRef.value.handleShowSkillsForProject(projectId);
+  }
+}
+
+function handleShowAllPersonalProjectsSkills() {
+  if (skillsScreenRef.value) {
+    skillsScreenRef.value.handleShowAllPersonalProjectsSkills();
+  }
+}
+
 onMounted(() => {
   if (mainElement.value) {
     mainElement.value.addEventListener("scroll", updateActiveSection);
@@ -78,11 +103,18 @@ onUnmounted(() => {
         :active-section-label="sections.find(s => s.id === activeSection)?.label || ''"
         @navigate="handleNavigate"
     />
-    <main ref="mainElement" class="min-h-[calc(100vh-3rem)] overflow-y-auto pt-[4rem]">
+    <main ref="mainElement" class="min-h-[calc(100vh-3rem-4rem)] overflow-y-auto mt-[4rem]">
       <HomeScreen/>
-      <WorkExperienceScreen/>
-      <SkillsScreen/>
-      <ProjectScreen/>
+      <WorkExperienceScreen
+          @show-skills-for-company="handleShowSkillsForCompany"
+          @show-all-work-skills="handleShowAllWorkSkills"
+          @show-skills-for-project="handleShowSkillsForProject"
+      />
+      <SkillsScreen ref="skillsScreenRef"/>
+      <ProjectScreen
+          @show-skills-for-project="handleShowSkillsForProject"
+          @show-all-personal-projects-skills="handleShowAllPersonalProjectsSkills"
+      />
       <ContactScreen/>
       <LegalScreen/>
     </main>

@@ -1,3 +1,24 @@
+<template>
+  <SectionContainer id="work-experience">
+    <div class="mb-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">Work Experience</h2>
+      <div class="text-gray-700 mb-1">Total years of experience: <span class="font-semibold">{{ totalYears }}</span></div>
+      <div class="text-gray-700 mb-4">Total companies: <span class="font-semibold">{{ totalCompanies }}</span></div>
+      <button @click="handleShowAllWorkSkills" class="bg-primary text-white px-4 py-2 rounded shadow hover:bg-primary-dark transition">See All Work Experience Skills</button>
+    </div>
+    <div class="flex flex-col gap-8">
+      <div v-for="exp in workExperience" :key="exp.companyId" class="w-full bg-white rounded-lg shadow p-6">
+        <div class="text-lg font-bold text-primary mb-1">{{ exp.company }}</div>
+        <div class="font-semibold text-gray-700 mb-1">{{ exp.position }}</div>
+        <div class="text-sm text-gray-500 mb-1">
+          {{ exp.startDate }} - {{ exp.endDate }} ({{ exp.years }} years)
+        </div>
+        <button @click="handleShowSkillsForCompany(exp.companyId)" class="mt-2 bg-gray-200 text-primary px-3 py-1 rounded hover:bg-primary hover:text-white transition">See Related Skills</button>
+      </div>
+    </div>
+  </SectionContainer>
+</template>
+
 <script setup lang="ts">
 import SectionContainer from "@/components/layout/SectionContainer.vue";
 import { workExperience } from "@/data/work-expereince.ts";
@@ -15,39 +36,3 @@ function handleShowAllWorkSkills() {
   emit("showAllWorkSkills");
 }
 </script>
-
-<template>
-  <SectionContainer id="work-experience">
-    <div class="mb-8 text-center">
-      <h2 class="text-2xl font-bold mb-2">Work Experience</h2>
-      <div class="text-gray-700 mb-1">Total years of experience: <span class="font-semibold">{{ totalYears }}</span></div>
-      <div class="text-gray-700 mb-4">Total companies: <span class="font-semibold">{{ totalCompanies }}</span></div>
-      <button @click="handleShowAllWorkSkills" class="bg-primary text-white px-4 py-2 rounded shadow hover:bg-primary-dark transition">See All Work Experience Skills</button>
-    </div>
-    <div class="work-experience-list">
-      <div v-for="exp in workExperience" :key="exp.companyId" class="work-experience-card">
-        <div class="text-lg font-bold text-primary mb-1">{{ exp.company }}</div>
-        <div class="font-semibold text-gray-700 mb-1">{{ exp.position }}</div>
-        <div class="text-sm text-gray-500 mb-1">
-          {{ exp.startDate }} - {{ exp.endDate }} ({{ exp.years }} years)
-        </div>
-        <button @click="handleShowSkillsForCompany(exp.companyId)" class="mt-2 bg-gray-200 text-primary px-3 py-1 rounded hover:bg-primary hover:text-white transition">See Related Skills</button>
-      </div>
-    </div>
-  </SectionContainer>
-</template>
-
-<style scoped>
-.work-experience-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-.work-experience-card {
-  width: 100%;
-  background: var(--color-neutral);
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  padding: 1.5rem 1rem;
-}
-</style>

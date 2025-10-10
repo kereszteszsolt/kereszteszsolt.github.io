@@ -18,7 +18,7 @@ const defaultPicture = 'https://ui-avatars.com/api/?name=User&background=ccc&col
 </script>
 
 <template>
-  <header class="bg-primary text-primary-caption py-4 shadow-md w-full min-h-[4rem] flex items-center">
+  <header class="bg-primary text-primary-caption py-4 shadow-md w-full h-[4rem] flex items-center">
     <div class="flex items-center justify-between px-4 w-full">
       <!-- Profile Picture -->
       <img

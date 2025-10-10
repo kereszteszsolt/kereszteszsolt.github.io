@@ -5,7 +5,9 @@ import SetionContainer from "@/components/layout/SetionContainer.vue";
 
 <template>
   <SetionContainer id="home">
-     home
+    <div class="bg-red-500 text-red-50 rounded shadow w-full h-full">
+      home test test test
+    </div>
   </SetionContainer>
 </template>
 

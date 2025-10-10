@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <footer class="flex items-center justify-center text-sm text-secondary bg-neutral-variant-darker py-6 mt-12 min-h-[3rem]">
+  <footer class="flex items-center justify-center text-sm text-secondary bg-neutral-variant-darker py-6 h-[3rem]">
     © {{ new Date().getFullYear() }} Keresztes Zsolt. All rights reserved.
   </footer>
 </template>

@@ -1,11 +1,5 @@
 @import "tailwindcss";
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 @theme {
     --color-primary: #ff7f50;        /* coral */
     --color-secondary: #228b22;      /* forestgreen */

@@ -3,8 +3,8 @@ const props = defineProps({id: String})
 </script>
 
 <template>
-  <section :id="id" class="flex items-center justify-between w-full min-h-[calc(100vh-4rem-3rem)]">
-    <div>
+  <section :id="id" class="flex flex-col items-center w-full h-full">
+    <div class="w-full h-full max-w-[768px]">
       <slot />
     </div>
   </section>

@@ -50,3 +50,5 @@ const profileInfo: ProfileInfo = {
         }
     ]
 };
+
+export default profileInfo;

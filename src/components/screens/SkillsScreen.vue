@@ -10,7 +10,7 @@ const selectedType = ref<SkillType | ''>('');
 const selectedProject = ref<PersonalProject | ''>('');
 const selectedCompany = ref<Company | ''>('');
 
-const projectOptions = personalProjects.map(p => ({ value: p.personalProject, label: p.name }));
+const projectOptions = personalProjects.map(p => ({ value: p.projectId, label: p.name }));
 
 // Gather all unique company names from all skills' usedAt
 const companyOptions = computed(() => {

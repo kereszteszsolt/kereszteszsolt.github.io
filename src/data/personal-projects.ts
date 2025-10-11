@@ -18,7 +18,7 @@ export const personalProjects: Project[] = [
                 url: "https://github.com/kereszteszsolt/PA_Focus_Guard",
             },
         ],
-        personalProject: "focus-guard",
+        projectId: "focus-guard",
         videos: [],
     },
     {
@@ -37,7 +37,7 @@ export const personalProjects: Project[] = [
                 url: "https://github.com/kereszteszsolt/kereszteszsolt.github.io",
             },
         ],
-        personalProject: "this-website",
+        projectId: "this-website",
         videos: [],
     },
     {
@@ -56,7 +56,7 @@ export const personalProjects: Project[] = [
                 url: "https://github.com/kereszteszsolt/example-planning-poker-react-express-socket-io",
             },
         ],
-        personalProject: "planning-poker",
+        projectId: "planning-poker",
         videos: [],
     },
     {
@@ -75,7 +75,7 @@ export const personalProjects: Project[] = [
                 url: "https://github.com/kereszteszsolt/example-ollama-local-chat-angular-tailwind-docker-lightweight",
             },
         ],
-        personalProject: "ollama-chat",
+        projectId: "ollama-chat",
         videos: [
             {
                 title: "Magyar bemutató (hu)",

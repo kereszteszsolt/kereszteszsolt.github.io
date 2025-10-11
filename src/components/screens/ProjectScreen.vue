@@ -6,14 +6,14 @@
       <button @click="handleShowAllPersonalProjectsSkills" class="bg-primary text-white px-4 py-2 rounded shadow hover:bg-primary-dark transition">See All Personal Project Skills</button>
     </div>
     <div class="flex flex-col gap-8">
-      <div v-for="project in personalProjects" :key="project.personalProject" class="w-full bg-white rounded-lg shadow p-6">
+      <div v-for="project in personalProjects" :key="project.projectId" class="w-full bg-white rounded-lg shadow p-6">
         <div class="text-lg font-bold text-primary mb-1">{{ project.name }}</div>
         <div v-if="project.description" class="text-sm text-gray-600 mb-2">{{ project.description }}</div>
         <div class="flex gap-3 items-center flex-wrap mb-2">
           <a v-if="project.url" :href="project.url" target="_blank" class="text-xs text-blue-600 hover:underline">Visit Project</a>
           <a v-if="project.github" :href="project.github" target="_blank" class="text-xs text-blue-600 hover:underline">GitHub</a>
         </div>
-        <button @click="handleShowSkillsForProject(project.personalProject)" class="mt-2 bg-gray-200 text-primary px-3 py-1 rounded hover:bg-primary hover:text-white transition">See Related Skills</button>
+        <button @click="handleShowSkillsForProject(project.projectId)" class="mt-2 bg-gray-200 text-primary px-3 py-1 rounded hover:bg-primary hover:text-white transition">See Related Skills</button>
       </div>
     </div>
     <SectionDivider />

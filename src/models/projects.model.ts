@@ -17,5 +17,5 @@ export interface Project {
     links?: Link[];
     repos?: Link[];
     videos?: Link[];
-    personalProject?: PersonalProject;
+    projectId?: PersonalProject;
 }

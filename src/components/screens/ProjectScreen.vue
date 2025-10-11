@@ -6,14 +6,58 @@
       <button @click="handleShowAllPersonalProjectsSkills" class="bg-primary text-white px-4 py-2 rounded shadow hover:bg-primary-dark transition">See All Personal Project Skills</button>
     </div>
     <div class="flex flex-col gap-8">
-      <div v-for="project in personalProjects" :key="project.projectId" class="w-full bg-white rounded-lg shadow p-6">
+      <div v-for="project in personalProjects" :key="project.projectId" class="w-full bg-neutral-variant rounded-lg shadow p-6">
         <div class="text-lg font-bold text-primary mb-1">{{ project.name }}</div>
         <div v-if="project.description" class="text-sm text-gray-600 mb-2">{{ project.description }}</div>
-        <div class="flex gap-3 items-center flex-wrap mb-2">
-          <a v-if="project.url" :href="project.url" target="_blank" class="text-xs text-blue-600 hover:underline">Visit Project</a>
-          <a v-if="project.github" :href="project.github" target="_blank" class="text-xs text-blue-600 hover:underline">GitHub</a>
+        <div class="flex gap-2 items-center flex-wrap mb-3">
+          <template v-if="Array.isArray(project.links)">
+            <template v-for="(link, idx) in project.links" :key="'link-' + idx">
+              <a
+                v-if="link && link.url"
+                :href="link.url"
+                target="_blank"
+                :title="link.url"
+                class="text-xs px-3 py-1.5 rounded border border-tertiary text-tertiary hover:bg-tertiary hover:text-white transition-all duration-200 font-medium"
+              >
+                {{ link.title || 'Visit Project' }}
+              </a>
+            </template>
+          </template>
+          <template v-if="Array.isArray(project.repos)">
+            <template v-for="(repo, idx) in project.repos" :key="'repo-' + idx">
+              <a
+                v-if="repo && repo.url"
+                :href="repo.url"
+                target="_blank"
+                :title="repo.url"
+                class="text-xs px-3 py-1.5 rounded border border-tertiary text-tertiary hover:bg-tertiary hover:text-white transition-all duration-200 font-medium"
+              >
+                {{ repo.title || 'GitHub' }}
+              </a>
+            </template>
+          </template>
+          <template v-if="Array.isArray(project.videos)">
+            <template v-for="(video, idx) in project.videos" :key="'video-' + idx">
+              <a
+                v-if="video && video.url"
+                :href="video.url"
+                target="_blank"
+                :title="video.url"
+                class="text-xs px-3 py-1.5 rounded border border-tertiary text-tertiary hover:bg-tertiary hover:text-white transition-all duration-200 font-medium"
+              >
+                {{ video.title || 'Watch Video' }}
+              </a>
+            </template>
+          </template>
         </div>
-        <button @click="handleShowSkillsForProject(project.projectId)" class="mt-2 bg-gray-200 text-primary px-3 py-1 rounded hover:bg-primary hover:text-white transition">See Related Skills</button>
+        <button
+          v-if="project.projectId"
+          @click="handleShowSkillsForProject(project.projectId)"
+          title="Filter skills used in this project and jump to skills section"
+          class="mt-2 text-xs px-3 py-1.5 rounded border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 font-medium"
+        >
+          🎯 View Project Skills
+        </button>
       </div>
     </div>
     <SectionDivider />

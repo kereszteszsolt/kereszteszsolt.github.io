@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import SectionContainer from '../layout/SectionContainer.vue';
 import SectionDivider from '../layout/SectionDivider.vue';
+import MasonryGrid from '../layout/MasonryGrid.vue';
 import { softwareDevelopment } from '@/data/software-development.ts';
 import { personalProjects } from '@/data/personal-projects.ts';
 import { ref, computed, nextTick } from 'vue';
@@ -131,8 +132,8 @@ defineExpose({
         Reset Filters
       </button>
     </div>
-    <div class="skills-masonry-grid">
-      <div v-for="category in filteredCategories" :key="category.title" class="skills-masonry-item">
+    <MasonryGrid>
+      <div v-for="category in filteredCategories" :key="category.title">
         <div class="text-lg font-bold text-primary mb-2">{{ category.title }}</div>
         <div v-for="sub in category.subcategories" :key="sub.title" class="mb-2">
           <div class="font-semibold text-gray-700">{{ sub.title }}</div>
@@ -143,28 +144,10 @@ defineExpose({
           </div>
         </div>
       </div>
-    </div>
+    </MasonryGrid>
     <SectionDivider />
   </SectionContainer>
 </template>
 
 <style scoped>
-.skills-masonry-grid {
-  columns: 2;
-  column-gap: 1.5rem;
-}
-.skills-masonry-item {
-  break-inside: avoid;
-  background: var(--color-neutral);
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  display: block;
-}
-@media (max-width: 768px) {
-  .skills-masonry-grid {
-    columns: 1;
-  }
-}
 </style>

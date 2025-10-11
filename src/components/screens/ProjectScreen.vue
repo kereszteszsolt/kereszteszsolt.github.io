@@ -5,8 +5,8 @@
       <div class="text-gray-700 mb-4">Total projects: <span class="font-semibold">{{ totalProjects }}</span></div>
       <button @click="handleShowAllPersonalProjectsSkills" class="bg-primary text-white px-4 py-2 rounded shadow hover:bg-primary-dark transition">See All Personal Project Skills</button>
     </div>
-    <div class="flex flex-col gap-8">
-      <div v-for="project in personalProjects" :key="project.projectId" class="w-full bg-neutral-variant rounded-lg shadow p-6">
+    <MasonryGrid>
+      <div v-for="project in personalProjects" :key="project.projectId">
         <div class="text-lg font-bold text-primary mb-1">{{ project.name }}</div>
         <div v-if="project.description" class="text-sm text-gray-600 mb-2">{{ project.description }}</div>
         <div class="flex gap-2 items-center flex-wrap mb-3">
@@ -76,7 +76,7 @@
           🎯 View Project Skills
         </button>
       </div>
-    </div>
+    </MasonryGrid>
     <SectionDivider />
   </SectionContainer>
 </template>
@@ -84,6 +84,7 @@
 <script setup lang="ts">
 import SectionContainer from "@/components/layout/SectionContainer.vue";
 import SectionDivider from "@/components/layout/SectionDivider.vue";
+import MasonryGrid from "@/components/layout/MasonryGrid.vue";
 import { personalProjects } from "@/data/personal-projects.ts";
 import { computed, defineEmits } from "vue";
 

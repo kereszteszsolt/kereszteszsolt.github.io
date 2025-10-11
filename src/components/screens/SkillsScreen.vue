@@ -1,100 +1,111 @@
 <script setup lang="ts">
-import SectionContainer from '../layout/SectionContainer.vue';
-import SectionDivider from '../layout/SectionDivider.vue';
-import MasonryGrid from '../layout/MasonryGrid.vue';
-import { softwareDevelopment } from '@/data/software-development.ts';
-import { personalProjects } from '@/data/personal-projects.ts';
-import { ref, computed, nextTick } from 'vue';
-import type { SkillType, PersonalProject, Company } from '@/models/skills.model';
+import SectionContainer from '../layout/SectionContainer.vue'
+import SectionDivider from '../layout/SectionDivider.vue'
+import MasonryGrid from '../layout/MasonryGrid.vue'
+import { softwareDevelopment } from '@/data/software-development.ts'
+import { personalProjects } from '@/data/personal-projects.ts'
+import { ref, computed, nextTick } from 'vue'
+import type { SkillType, PersonalProject, Company } from '@/models/skills.model'
+import FlexPackWrapper from '@/components/layout/FlexPackWrapper.vue'
 
-const selectedType = ref<SkillType | ''>('');
-const selectedProject = ref<PersonalProject | ''>('');
-const selectedCompany = ref<Company | ''>('');
+const selectedType = ref<SkillType | ''>('')
+const selectedProject = ref<PersonalProject | ''>('')
+const selectedCompany = ref<Company | ''>('')
 
-const projectOptions = personalProjects.map(p => ({ value: p.projectId, label: p.name }));
+const projectOptions = personalProjects.map((p) => ({ value: p.projectId, label: p.name }))
 
 // Gather all unique company names from all skills' usedAt
 const companyOptions = computed(() => {
-  const companies = new Set<Company>();
-  softwareDevelopment.categories.forEach(category => {
-    category.subcategories.forEach(sub => {
-      sub.skills.forEach(skill => {
+  const companies = new Set<Company>()
+  softwareDevelopment.categories.forEach((category) => {
+    category.subcategories.forEach((sub) => {
+      sub.skills.forEach((skill) => {
         if (Array.isArray(skill.usedAt)) {
-          skill.usedAt.forEach(company => {
+          skill.usedAt.forEach((company) => {
             if (company === 'ikonsoft' || company === 'msg-systems') {
-              companies.add(company as Company);
+              companies.add(company as Company)
             }
-          });
+          })
         }
-      });
-    });
-  });
-  return Array.from(companies);
-});
+      })
+    })
+  })
+  return Array.from(companies)
+})
 
 const filteredCategories = computed(() => {
-  return softwareDevelopment.categories.map(category => {
-    const filteredSubcategories = category.subcategories.map(sub => {
-      let skills = sub.skills;
+  return softwareDevelopment.categories
+    .map((category) => {
+      const filteredSubcategories = category.subcategories
+        .map((sub) => {
+          let skills = sub.skills
 
-      // If a specific project is selected, show skills with that project
-      // regardless of type (to catch cases where type wasn't set)
-      if (selectedProject.value) {
-        skills = skills.filter(skill => skill.personalProjects?.includes(selectedProject.value as PersonalProject));
-      }
-      // Only apply type filter if no specific project is selected
-      else if (selectedType.value) {
-        skills = skills.filter(skill => skill.type?.includes(selectedType.value as SkillType));
-      }
+          // If a specific project is selected, show skills with that project
+          // regardless of type (to catch cases where type wasn't set)
+          if (selectedProject.value) {
+            skills = skills.filter((skill) =>
+              skill.personalProjects?.includes(selectedProject.value as PersonalProject),
+            )
+          }
+          // Only apply type filter if no specific project is selected
+          else if (selectedType.value) {
+            skills = skills.filter((skill) => skill.type?.includes(selectedType.value as SkillType))
+          }
 
-      // Company filter is independent
-      if (selectedCompany.value) {
-        skills = skills.filter(skill => Array.isArray(skill.usedAt) && skill.usedAt.includes(selectedCompany.value as Company));
-      }
+          // Company filter is independent
+          if (selectedCompany.value) {
+            skills = skills.filter(
+              (skill) =>
+                Array.isArray(skill.usedAt) &&
+                skill.usedAt.includes(selectedCompany.value as Company),
+            )
+          }
 
-      return { ...sub, skills };
-    }).filter(sub => sub.skills.length > 0);
-    return { ...category, subcategories: filteredSubcategories };
-  }).filter(category => category.subcategories.length > 0);
-});
+          return { ...sub, skills }
+        })
+        .filter((sub) => sub.skills.length > 0)
+      return { ...category, subcategories: filteredSubcategories }
+    })
+    .filter((category) => category.subcategories.length > 0)
+})
 
 function resetFilters() {
-  selectedType.value = '';
-  selectedProject.value = '';
-  selectedCompany.value = '';
+  selectedType.value = ''
+  selectedProject.value = ''
+  selectedCompany.value = ''
 }
 
 function scrollToSkills() {
   nextTick(() => {
-    const el = document.getElementById('skills');
+    const el = document.getElementById('skills')
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      el.scrollIntoView({ behavior: 'smooth' })
     }
-  });
+  })
 }
 
 function handleShowSkillsForCompany(companyId: Company) {
-  resetFilters();
-  selectedCompany.value = companyId;
-  scrollToSkills();
+  resetFilters()
+  selectedCompany.value = companyId
+  scrollToSkills()
 }
 
 function handleShowAllWorkSkills() {
-  resetFilters();
-  selectedType.value = 'work-experience';
-  scrollToSkills();
+  resetFilters()
+  selectedType.value = 'work-experience'
+  scrollToSkills()
 }
 
 function handleShowSkillsForProject(projectId: PersonalProject) {
-  resetFilters();
-  selectedProject.value = projectId;
-  scrollToSkills();
+  resetFilters()
+  selectedProject.value = projectId
+  scrollToSkills()
 }
 
 function handleShowAllPersonalProjectsSkills() {
-  resetFilters();
-  selectedType.value = 'personal-projects';
-  scrollToSkills();
+  resetFilters()
+  selectedType.value = 'personal-projects'
+  scrollToSkills()
 }
 
 // Expose handlers for parent/other components
@@ -102,8 +113,8 @@ defineExpose({
   handleShowSkillsForCompany,
   handleShowAllWorkSkills,
   handleShowSkillsForProject,
-  handleShowAllPersonalProjectsSkills
-});
+  handleShowAllPersonalProjectsSkills,
+})
 </script>
 
 <template>
@@ -138,9 +149,15 @@ defineExpose({
         <div v-for="sub in category.subcategories" :key="sub.title" class="mb-2">
           <div class="font-semibold text-gray-700">{{ sub.title }}</div>
           <div class="flex flex-wrap gap-2 mt-1">
-            <span v-for="skill in sub.skills" :key="skill.name" class="bg-gray-100 rounded px-3 py-1 text-sm text-gray-800 shadow">
-              {{ skill.name }}
-            </span>
+            <FlexPackWrapper class="mt-1">
+              <span
+                v-for="skill in sub.skills"
+                :key="skill.name"
+                class="bg-gray-100 rounded px-3 py-1 text-sm text-gray-800 shadow"
+              >
+                {{ skill.name }}
+              </span>
+            </FlexPackWrapper>
           </div>
         </div>
       </div>
@@ -149,5 +166,4 @@ defineExpose({
   </SectionContainer>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

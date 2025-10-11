@@ -17,8 +17,13 @@
                 :href="link.url"
                 target="_blank"
                 :title="link.url"
-                class="text-xs px-3 py-1.5 rounded border border-tertiary text-tertiary hover:bg-tertiary hover:text-white transition-all duration-200 font-medium"
+                class="text-xs px-3 py-1.5 rounded border border-tertiary text-tertiary hover:bg-tertiary hover:text-white transition-all duration-200 font-medium flex items-center gap-1"
               >
+                <img
+                  src="/assets/icons/world-globe-line-icon.png"
+                  alt="Website"
+                  class="w-4 h-4"
+                />
                 {{ link.title || 'Visit Project' }}
               </a>
             </template>
@@ -30,8 +35,14 @@
                 :href="repo.url"
                 target="_blank"
                 :title="repo.url"
-                class="text-xs px-3 py-1.5 rounded border border-tertiary text-tertiary hover:bg-tertiary hover:text-white transition-all duration-200 font-medium"
+                class="text-xs px-3 py-1.5 rounded border border-tertiary text-tertiary hover:bg-tertiary hover:text-white transition-all duration-200 font-medium flex items-center gap-1"
+                aria-label="View on GitHub"
               >
+                <img
+                  src="/assets/icons/contact/github-icon.png"
+                  alt="GitHub"
+                  class="w-4 h-4"
+                />
                 {{ repo.title || 'GitHub' }}
               </a>
             </template>
@@ -43,8 +54,14 @@
                 :href="video.url"
                 target="_blank"
                 :title="video.url"
-                class="text-xs px-3 py-1.5 rounded border border-tertiary text-tertiary hover:bg-tertiary hover:text-white transition-all duration-200 font-medium"
+                class="text-xs px-3 py-1.5 rounded border border-tertiary text-tertiary hover:bg-tertiary hover:text-white transition-all duration-200 font-medium flex items-center gap-1"
+                aria-label="Watch on YouTube"
               >
+                <img
+                  src="/assets/icons/contact/youtube-color-icon.png"
+                  alt="YouTube"
+                  class="w-4 h-4"
+                />
                 {{ video.title || 'Watch Video' }}
               </a>
             </template>

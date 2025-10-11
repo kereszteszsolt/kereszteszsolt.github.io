@@ -3,7 +3,10 @@
     <div class="mb-8 text-center">
       <h2 class="text-2xl font-bold mb-2">Personal Projects</h2>
       <div class="text-gray-700 mb-4">Total projects: <span class="font-semibold">{{ totalProjects }}</span></div>
-      <button @click="handleShowAllPersonalProjectsSkills" class="bg-primary text-white px-4 py-2 rounded shadow hover:bg-primary-dark transition">See All Personal Project Skills</button>
+      <button @click="handleShowAllPersonalProjectsSkills"
+        class="text-base px-4 py-2 rounded border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 font-medium">
+        See All Personal Project Skills
+      </button>
     </div>
     <MasonryGrid>
       <div v-for="project in personalProjects" :key="project.projectId">

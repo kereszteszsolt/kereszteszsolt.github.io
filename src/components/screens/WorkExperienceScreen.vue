@@ -4,10 +4,13 @@
       <h2 class="text-2xl font-bold mb-2">Work Experience</h2>
       <div class="text-gray-700 mb-1">Total years of experience: <span class="font-semibold">{{ totalYears }}</span></div>
       <div class="text-gray-700 mb-4">Total companies: <span class="font-semibold">{{ totalCompanies }}</span></div>
-      <button @click="handleShowAllWorkSkills" class="bg-primary text-white px-4 py-2 rounded shadow hover:bg-primary-dark transition">See All Work Experience Skills</button>
+      <button @click="handleShowAllWorkSkills"
+        class="text-base px-4 py-2 rounded border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 font-medium">
+        See All Work Experience Skills
+      </button>
     </div>
     <div class="flex flex-col gap-8">
-      <div v-for="exp in workExperience" :key="exp.companyId" class="w-full bg-white rounded-lg shadow p-6">
+      <div v-for="exp in workExperience" :key="exp.companyId" class="w-full bg-neutral rounded-lg shadow p-6">
         <div class="text-lg font-bold text-primary mb-1">{{ exp.company }}</div>
         <div class="font-semibold text-gray-700 mb-1">{{ exp.position }}</div>
         <div class="text-sm text-gray-500 mb-1">
@@ -15,7 +18,10 @@
         </div>
         <!-- Add description below position and date info -->
         <div class="text-gray-800 mb-2" v-if="exp.description">{{ exp.description }}</div>
-        <button @click="handleShowSkillsForCompany(exp.companyId)" class="mt-2 bg-gray-200 text-primary px-3 py-1 rounded hover:bg-primary hover:text-white transition">See Related Skills</button>
+        <button @click="handleShowSkillsForCompany(exp.companyId)"
+          class="text-xs px-3 py-1.5 rounded border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 font-medium mt-2">
+          See Related Skills
+        </button>
       </div>
     </div>
     <SectionDivider />

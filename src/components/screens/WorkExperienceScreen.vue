@@ -13,6 +13,8 @@
         <div class="text-sm text-gray-500 mb-1">
           {{ exp.startDate }} - {{ exp.endDate }} ({{ exp.years }} years)
         </div>
+        <!-- Add description below position and date info -->
+        <div class="text-gray-800 mb-2" v-if="exp.description">{{ exp.description }}</div>
         <button @click="handleShowSkillsForCompany(exp.companyId)" class="mt-2 bg-gray-200 text-primary px-3 py-1 rounded hover:bg-primary hover:text-white transition">See Related Skills</button>
       </div>
     </div>

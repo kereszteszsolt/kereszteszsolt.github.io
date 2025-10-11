@@ -34,6 +34,7 @@ export interface WorkExperience {
     company: string;
     companyId: Company;
     position: string;
+    description: string;
     startDate: string;
     endDate?: string;
     years: number;

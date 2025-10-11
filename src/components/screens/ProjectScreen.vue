@@ -25,7 +25,7 @@
                 type="button"
                 @click="openUrl(link.url)"
                 :title="link.url"
-                class="text-xs px-3 py-1.5 rounded border border-tertiary text-tertiary hover:bg-tertiary hover:text-white transition-all duration-200 font-medium flex items-center gap-1"
+                class="text-xs px-3 py-1.5 rounded border border-secondary text-secondary hover:bg-secondary hover:text-white transition-all duration-200 font-medium flex items-center gap-1"
               >
                 <img
                   src="/assets/icons/world-globe-line-icon.png"
@@ -43,7 +43,7 @@
                 type="button"
                 @click="openUrl(repo.url)"
                 :title="repo.url"
-                class="text-xs px-3 py-1.5 rounded border border-tertiary text-tertiary hover:bg-tertiary hover:text-white transition-all duration-200 font-medium flex items-center gap-1"
+                class="text-xs px-3 py-1.5 rounded border border-secondary text-secondary hover:bg-secondary hover:text-white transition-all duration-200 font-medium flex items-center gap-1"
                 aria-label="View on GitHub"
               >
                 <img

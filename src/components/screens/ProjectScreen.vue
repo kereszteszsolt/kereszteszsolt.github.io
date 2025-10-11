@@ -10,6 +10,14 @@
         <div class="text-lg font-bold text-primary mb-1">{{ project.name }}</div>
         <div v-if="project.description" class="text-sm text-gray-600 mb-2">{{ project.description }}</div>
         <div class="flex gap-2 items-center flex-wrap mb-3">
+          <button
+            v-if="project.projectId"
+            @click="handleShowSkillsForProject(project.projectId)"
+            title="Filter skills used in this project and jump to skills section"
+            class="text-xs px-3 py-1.5 rounded border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 font-medium"
+          >
+            🎯 View Project Skills
+          </button>
           <template v-if="Array.isArray(project.links)">
             <template v-for="(link, idx) in project.links" :key="'link-' + idx">
               <a
@@ -67,14 +75,6 @@
             </template>
           </template>
         </div>
-        <button
-          v-if="project.projectId"
-          @click="handleShowSkillsForProject(project.projectId)"
-          title="Filter skills used in this project and jump to skills section"
-          class="mt-2 text-xs px-3 py-1.5 rounded border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 font-medium"
-        >
-          🎯 View Project Skills
-        </button>
       </div>
     </MasonryGrid>
     <SectionDivider />

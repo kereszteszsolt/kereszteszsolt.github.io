@@ -119,29 +119,33 @@ defineExpose({
 
 <template>
   <SectionContainer id="skills">
-    <div class="mb-4 flex flex-wrap gap-4 items-center justify-center">
-      <label class="font-semibold">Filter by:</label>
-      <select v-model="selectedType" class="border rounded px-2 py-1">
-        <option value="">All Types</option>
-        <option value="work-experience">Used at Work</option>
-        <option value="personal-projects">Personal Projects</option>
-        <option value="experimental">Experimental</option>
-      </select>
-      <select v-model="selectedProject" class="border rounded px-2 py-1">
-        <option value="">All Projects</option>
-        <option v-for="project in projectOptions" :key="project.value" :value="project.value">
-          {{ project.label }}
-        </option>
-      </select>
-      <select v-model="selectedCompany" class="border rounded px-2 py-1">
-        <option value="">All Companies</option>
-        <option v-for="company in companyOptions" :key="company" :value="company">
-          {{ company }}
-        </option>
-      </select>
-      <button @click="resetFilters" class="border rounded px-4 py-1 bg-red-500 text-white">
-        Reset Filters
-      </button>
+    <div class="mb-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">Skills</h2>
+
+      <div class="mb-4 flex flex-wrap gap-4 items-center justify-center">
+        <label class="font-semibold">Filter by:</label>
+        <select v-model="selectedType" class="border rounded px-2 py-1">
+          <option value="">All Types</option>
+          <option value="work-experience">Used at Work</option>
+          <option value="personal-projects">Personal Projects</option>
+          <option value="experimental">Experimental</option>
+        </select>
+        <select v-model="selectedProject" class="border rounded px-2 py-1">
+          <option value="">All Projects</option>
+          <option v-for="project in projectOptions" :key="project.value" :value="project.value">
+            {{ project.label }}
+          </option>
+        </select>
+        <select v-model="selectedCompany" class="border rounded px-2 py-1">
+          <option value="">All Companies</option>
+          <option v-for="company in companyOptions" :key="company" :value="company">
+            {{ company }}
+          </option>
+        </select>
+        <button @click="resetFilters" class="border rounded px-4 py-1 bg-red-500 text-white">
+          Reset Filters
+        </button>
+      </div>
     </div>
     <MasonryGrid>
       <div v-for="category in filteredCategories" :key="category.title">

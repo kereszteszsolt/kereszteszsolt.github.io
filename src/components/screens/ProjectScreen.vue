@@ -9,7 +9,7 @@
       <div v-for="project in personalProjects" :key="project.projectId">
         <div class="text-lg font-bold text-primary mb-1">{{ project.name }}</div>
         <div v-if="project.description" class="text-sm text-gray-600 mb-2">{{ project.description }}</div>
-        <div class="flex gap-2 items-center flex-wrap mb-3">
+        <FlexPackWrapper class="mb-3">
           <button
             v-if="project.projectId"
             @click="handleShowSkillsForProject(project.projectId)"
@@ -74,7 +74,7 @@
               </a>
             </template>
           </template>
-        </div>
+        </FlexPackWrapper>
       </div>
     </MasonryGrid>
     <SectionDivider />
@@ -85,6 +85,7 @@
 import SectionContainer from "@/components/layout/SectionContainer.vue";
 import SectionDivider from "@/components/layout/SectionDivider.vue";
 import MasonryGrid from "@/components/layout/MasonryGrid.vue";
+import FlexPackWrapper from "@/components/layout/FlexPackWrapper.vue";
 import { personalProjects } from "@/data/personal-projects.ts";
 import { computed, defineEmits } from "vue";
 

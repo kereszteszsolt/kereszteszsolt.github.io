@@ -20,10 +20,10 @@
           </button>
           <template v-if="Array.isArray(project.links)">
             <template v-for="(link, idx) in project.links" :key="'link-' + idx">
-              <a
+              <button
                 v-if="link && link.url"
-                :href="link.url"
-                target="_blank"
+                type="button"
+                @click="openUrl(link.url)"
                 :title="link.url"
                 class="text-xs px-3 py-1.5 rounded border border-tertiary text-tertiary hover:bg-tertiary hover:text-white transition-all duration-200 font-medium flex items-center gap-1"
               >
@@ -33,15 +33,15 @@
                   class="w-4 h-4"
                 />
                 {{ link.title || 'Visit Project' }}
-              </a>
+              </button>
             </template>
           </template>
           <template v-if="Array.isArray(project.repos)">
             <template v-for="(repo, idx) in project.repos" :key="'repo-' + idx">
-              <a
+              <button
                 v-if="repo && repo.url"
-                :href="repo.url"
-                target="_blank"
+                type="button"
+                @click="openUrl(repo.url)"
                 :title="repo.url"
                 class="text-xs px-3 py-1.5 rounded border border-tertiary text-tertiary hover:bg-tertiary hover:text-white transition-all duration-200 font-medium flex items-center gap-1"
                 aria-label="View on GitHub"
@@ -52,15 +52,15 @@
                   class="w-4 h-4"
                 />
                 {{ repo.title || 'GitHub' }}
-              </a>
+              </button>
             </template>
           </template>
           <template v-if="Array.isArray(project.videos)">
             <template v-for="(video, idx) in project.videos" :key="'video-' + idx">
-              <a
+              <button
                 v-if="video && video.url"
-                :href="video.url"
-                target="_blank"
+                type="button"
+                @click="openUrl(video.url)"
                 :title="video.url"
                 class="text-xs px-3 py-1.5 rounded border border-tertiary text-tertiary hover:bg-tertiary hover:text-white transition-all duration-200 font-medium flex items-center gap-1"
                 aria-label="Watch on YouTube"
@@ -71,7 +71,7 @@
                   class="w-4 h-4"
                 />
                 {{ video.title || 'Watch Video' }}
-              </a>
+              </button>
             </template>
           </template>
         </FlexPackWrapper>
@@ -99,5 +99,9 @@ function handleShowSkillsForProject(projectId: string) {
 
 function handleShowAllPersonalProjectsSkills() {
   emit("showAllPersonalProjectsSkills");
+}
+
+function openUrl(url: string) {
+  window.open(url, '_blank');
 }
 </script>

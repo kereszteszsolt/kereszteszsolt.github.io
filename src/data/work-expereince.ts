@@ -22,7 +22,7 @@ const workExperience: WorkExperience[] = [
       'teams to deliver high-quality solutions that meet business requirements and enhance user experience. ',
     startDate: '2016-Jul',
     endDate: 'present',
-    years: 7,
+    years: 9,
   },
 ]
 

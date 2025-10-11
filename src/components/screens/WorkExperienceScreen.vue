@@ -1,9 +1,23 @@
 <template>
   <SectionContainer id="work-experience">
     <div class="mb-8 text-center">
-      <h2 class="text-2xl font-bold mb-2">Work Experience</h2>
-      <div class="text-gray-700 mb-1">Total years of experience: <span class="font-semibold">{{ totalYears }}</span></div>
-      <div class="text-gray-700 mb-4">Total companies: <span class="font-semibold">{{ totalCompanies }}</span></div>
+      <h2 class="text-2xl font-bold mb-4">Work Experience</h2>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+        <div class="flex items-center gap-3 bg-white/80 shadow rounded-xl px-6 py-3">
+          <img src="/assets/icons/profile/briefcase-bag-color-icon.png" alt="Years" class="w-8 h-8" />
+          <div class="text-left">
+            <div class="text-2xl font-extrabold text-primary">{{ totalYears }}</div>
+            <div class="text-sm text-gray-600 font-medium">Years Experience</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 bg-white/80 shadow rounded-xl px-6 py-3">
+          <img src="/assets/icons/profile/architecture-plan-icon.png" alt="Companies" class="w-8 h-8" />
+          <div class="text-left">
+            <div class="text-2xl font-extrabold text-primary">{{ totalCompanies }}</div>
+            <div class="text-sm text-gray-600 font-medium">Companies</div>
+          </div>
+        </div>
+      </div>
       <button @click="handleShowAllWorkSkills"
         class="text-base px-4 py-2 rounded border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 font-medium">
         See All Work Experience Skills

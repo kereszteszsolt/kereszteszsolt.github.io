@@ -4,7 +4,7 @@
       <h2 class="text-2xl font-bold mb-4">Work Experience</h2>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
         <div class="flex items-center gap-3 bg-neutral shadow rounded-xl px-6 py-3">
-          <img src="/assets/icons/profile/briefcase-bag-color-icon.png" alt="Years" class="w-8 h-8" />
+          <img src="/assets/icons/briefcase-bag-color-icon.png" alt="Years" class="w-8 h-8" />
           <div class="text-left">
             <div class="text-2xl font-extrabold text-primary">{{ totalYears }}+</div>
             <div class="text-sm text-gray-600 font-medium">Years Experience</div>

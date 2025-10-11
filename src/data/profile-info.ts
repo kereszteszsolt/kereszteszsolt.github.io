@@ -10,43 +10,43 @@ export const profileInfo: ProfileInfo = {
         {
             label: "Work experience",
             details: "12+ years in the IT industry since 2013 (3+ years in 3rd level support, 9+ years as a software engineer)",
-            icon: "/assets/icons/profile/briefcase-bag-color-icon.png"
+            icon: "/assets/icons/briefcase-bag-color-icon.png"
         },
         {
             label: "Personal projects",
             details: "2+ years of experience building and maintaining personal projects for the public.",
-            icon: "/assets/icons/profile/architecture-plan-icon.png"
+            icon: "/assets/icons/architecture-plan-icon.png"
         },
         {
             label: "Content creation",
             details: "2+ years of experience creating and sharing educational content on YouTube and TikTok (self-development and STEM)",
             info: "STEM: Science, Technology, Engineering, and Mathematics",
-            icon: "/assets/icons/profile/film-movie-icon.png"
+            icon: "/assets/icons/film-movie-icon.png"
         },
         {
             label: "Hobby",
             details: "I love learning new things, improving myself, and sharing my knowledge with others. I am a lifelong learner and passionate about nonfiction books, especially audiobooks—several books per month.",
-            icon: "/assets/icons/profile/healthy-lifestyle-icon.png"
+            icon: "/assets/icons/healthy-lifestyle-icon.png"
         },
         {
             label: "Languages",
             details: "Hungarian (native), Romanian (daily communication), English (working proficiency), German (basic)",
-            icon: "/assets/icons/profile/language-translator-icon.png"
+            icon: "/assets/icons/language-translator-icon.png"
         },
         {
             label: "MSc in Engineering",
             details: "Applied Informatics in Complex Systems Engineering, Automation and Computer Science, Technical University of Cluj-Napoca, Romania (2012–2014)",
-            icon: "/assets/icons/profile/graduation-cap-icon.png"
+            icon: "/assets/icons/graduation-cap-icon.png"
         },
         {
             label: "BSc in Engineering",
             details: "Applied Informatics and Automation (Systems Engineering), Automation and Computer Science, Technical University of Cluj-Napoca, Romania (2008–2012)",
-            icon: "/assets/icons/profile/graduation-cap-icon.png"
+            icon: "/assets/icons/graduation-cap-icon.png"
         },
         {
             label: "Main interests (2025–2026...)" ,
             details: "Angular, Vue, Python, AI tools and APIs, Linux, NestJS, cross-platform development (like Ionic, React Native), content creation, productivity, self-development.",
-            icon: "/assets/icons/profile/target-goals-icon.png"
+            icon: "/assets/icons/target-goals-icon.png"
         }
     ]
 };

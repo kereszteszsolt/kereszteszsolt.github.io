@@ -4,7 +4,7 @@
       <h2 class="text-2xl font-bold mb-4">Personal Projects</h2>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
         <div class="flex items-center gap-3 bg-neutral shadow rounded-xl px-6 py-3">
-          <img src="/assets/icons/profile/architecture-plan-icon.png" alt="Projects" class="w-8 h-8" />
+          <img src="/assets/icons/architecture-plan-icon.png" alt="Projects" class="w-8 h-8" />
           <div class="text-left">
             <div class="text-2xl font-extrabold text-primary">{{ totalProjects }}</div>
             <div class="text-sm text-gray-600 font-medium">Projects</div>
@@ -58,7 +58,7 @@
                 aria-label="View on GitHub"
               >
                 <img
-                  src="/assets/icons/contact/github-icon.png"
+                  src="/assets/icons/github-icon.png"
                   alt="GitHub"
                   class="w-4 h-4"
                 />
@@ -77,7 +77,7 @@
                 aria-label="Watch on YouTube"
               >
                 <img
-                  src="/assets/icons/contact/youtube-color-icon.png"
+                  src="/assets/icons/youtube-color-icon.png"
                   alt="YouTube"
                   class="w-4 h-4"
                 />

@@ -37,5 +37,4 @@ export interface WorkExperience {
     startDate: string;
     endDate?: string;
     years: number;
-    skillsUsed: SkillCategory[];
 }

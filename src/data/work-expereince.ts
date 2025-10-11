@@ -8,8 +8,7 @@ const workExperience: WorkExperience[] = [
         position: "3rd Level Support",
         startDate: "2013-Apr",
         endDate: "2016-Jun",
-        years: 3,
-        skillsUsed: []
+        years: 3
     },
     {
         company: "msg systems AG",
@@ -17,8 +16,7 @@ const workExperience: WorkExperience[] = [
         position: "Software Engineer",
         startDate: "2016-Jul",
         endDate: "present",
-        years: 7,
-        skillsUsed: []
+        years: 7
     },
 ];
 

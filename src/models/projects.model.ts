@@ -13,7 +13,6 @@ export interface SocialLink extends Link {
 
 export interface Project {
     name: string;
-    skillsUsed?: SkillCategory[];
     description: string;
     links?: Link[];
     repos?: Link[];

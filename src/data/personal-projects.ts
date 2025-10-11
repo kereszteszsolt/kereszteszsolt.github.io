@@ -19,13 +19,6 @@ export const personalProjects: Project[] = [
             },
         ],
         personalProject: "focus-guard",
-        skillsUsed: softwareDevelopment.categories.filter((category) =>
-            category.subcategories.some((sub) =>
-                sub.skills.some((skill) =>
-                    skill.personalProjects?.includes("focus-guard")
-                )
-            )
-        ),
         videos: [],
     },
     {
@@ -45,13 +38,6 @@ export const personalProjects: Project[] = [
             },
         ],
         personalProject: "this-website",
-        skillsUsed: softwareDevelopment.categories.filter((category) =>
-            category.subcategories.some((sub) =>
-                sub.skills.some((skill) =>
-                    skill.personalProjects?.includes("this-website")
-                )
-            )
-        ),
         videos: [],
     },
     {
@@ -71,13 +57,6 @@ export const personalProjects: Project[] = [
             },
         ],
         personalProject: "planning-poker",
-        skillsUsed: softwareDevelopment.categories.filter((category) =>
-            category.subcategories.some((sub) =>
-                sub.skills.some((skill) =>
-                    skill.personalProjects?.includes("planning-poker")
-                )
-            )
-        ),
         videos: [],
     },
     {
@@ -97,13 +76,6 @@ export const personalProjects: Project[] = [
             },
         ],
         personalProject: "ollama-chat",
-        skillsUsed: softwareDevelopment.categories.filter((category) =>
-            category.subcategories.some((sub) =>
-                sub.skills.some((skill) =>
-                    skill.personalProjects?.includes("ollama-chat")
-                )
-            )
-        ),
         videos: [
             {
                 title: "Magyar bemutató (hu)",

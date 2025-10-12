@@ -123,5 +123,30 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+main::-webkit-scrollbar {
+    width: 12px;
+    background: var(--color-neutral-variant);
+    border-radius: var(--radius-md);
+}
 
+main::-webkit-scrollbar-thumb {
+    background: var(--color-primary-300);
+    border-radius: var(--radius-xl);
+    border: 3px solid var(--color-neutral-variant);
+}
+
+main::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-500);
+}
+
+main::-webkit-scrollbar-track {
+    background: var(--color-neutral-variant-darker);
+    border-radius: var(--radius-md);
+}
+
+/* Firefox */
+main {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary-300) var(--color-neutral-variant-darker);
+}
 </style>

@@ -48,9 +48,18 @@ const defaultPicture = 'https://ui-avatars.com/api/?name=User&background=ccc&col
         @click="menuOpen = !menuOpen"
         aria-label="Toggle navigation menu"
       >
-        <span class="block w-6 h-0.5 bg-secondary mb-1"></span>
-        <span class="block w-6 h-0.5 bg-secondary mb-1"></span>
-        <span class="block w-6 h-0.5 bg-secondary"></span>
+        <span
+          class="block w-6 h-0.5 bg-secondary mb-1 transition-transform duration-300"
+          :class="menuOpen ? 'rotate-45 translate-y-1.5' : ''"
+        ></span>
+        <span
+          class="block w-6 h-0.5 bg-secondary mb-1 transition-all duration-300"
+          :class="menuOpen ? 'opacity-0 scale-x-0' : ''"
+        ></span>
+        <span
+          class="block w-6 h-0.5 bg-secondary transition-transform duration-300"
+          :class="menuOpen ? '-rotate-45 -translate-y-1.5' : ''"
+        ></span>
       </button>
     </div>
     <!-- Mobile Navigation -->

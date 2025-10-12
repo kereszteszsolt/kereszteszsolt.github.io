@@ -18,28 +18,53 @@ const defaultPicture = 'https://ui-avatars.com/api/?name=User&background=ccc&col
 </script>
 
 <template>
-  <header class="bg-primary text-primary-caption py-4 shadow-md w-full h-[4rem] flex items-center fixed top-0 left-0 z-50">
-    <div class="flex items-center justify-between px-4 w-full">
+  <header class="bg-primary text-primary-caption shadow-md w-full h-[4rem] flex fixed top-0 left-0 z-50">
+    <div class="flex justify-between w-full pl-2">
       <!-- Profile Picture -->
       <img
         :src="props.profileImage || defaultPicture"
         alt="Profile Picture"
-        class="w-12 h-12 rounded-full object-cover border-2 border-tertiary shadow"
+        class="w-12 h-12 self-center rounded-full object-cover border-2 border-tertiary shadow"
       />
       <!-- Active Section Label (centered) -->
       <div class="hidden md:block flex-1 text-center text-lg font-bold text-primary-caption">
         {{ props.activeSectionLabel }}
       </div>
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex gap-2">
+      <nav
+        class="hidden md:flex gap-2 md:rounded-bl-2xl md:shadow-lg md:border md:border-secondary-700 md:backdrop-blur-md pr-2"
+        style="background: linear-gradient(to bottom, var(--color-secondary-400) 0%, var(--color-secondary-700) 100%); background-color: rgba(34,139,34,0.7);"
+      >
         <button
           v-for="section in props.sections"
           :key="section.id"
-          :class="[ 'px-4 py-2 rounded-lg transition font-bold',
-            props.activeSection === section.id ? 'bg-secondary text-white' : 'bg-primary text-primary-caption hover:bg-secondary hover:text-white']"
+          class="group px-4 py-2 rounded-lg transition text-lg font-bold border border-transparent relative overflow-hidden"
+          :style="
+            props.activeSection === section.id
+              ? 'background: linear-gradient(to bottom, var(--color-secondary-300), var(--color-secondary-100)); color: var(--color-secondary-900); box-shadow: 0 4px 24px 0 rgba(34,139,34,0.25); border: 1px solid var(--color-secondary-200);'
+              : ''
+          "
+          :class="[
+            props.activeSection === section.id
+              ? ''
+              : 'bg-transparent text-primary-caption',
+          ]"
           @click="emit('navigate', section.id)"
         >
-          {{ section.label }}
+          <span
+            class="relative z-10"
+            :class="[
+              props.activeSection === section.id ? 'font-bold' : 'group-hover:text-secondary-900',
+              'transition-colors duration-200'
+            ]"
+          >
+            {{ section.label }}
+          </span>
+          <span
+            v-if="props.activeSection !== section.id"
+            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
+            style="background: linear-gradient(to bottom, var(--color-secondary-400), var(--color-secondary-700)); backdrop-filter: blur(2px); border-radius: 0.5rem;"
+          ></span>
         </button>
       </nav>
       <!-- Burger Menu Button -->

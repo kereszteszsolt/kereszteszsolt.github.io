@@ -35,7 +35,7 @@ const defaultPicture = 'https://ui-avatars.com/api/?name=User&background=ccc&col
         <button
           v-for="section in props.sections"
           :key="section.id"
-          :class="[ 'px-4 py-2 rounded-lg transition',
+          :class="[ 'px-4 py-2 rounded-lg transition font-bold',
             props.activeSection === section.id ? 'bg-secondary text-white' : 'bg-primary text-primary-caption hover:bg-secondary hover:text-white']"
           @click="emit('navigate', section.id)"
         >
@@ -54,13 +54,13 @@ const defaultPicture = 'https://ui-avatars.com/api/?name=User&background=ccc&col
       </button>
     </div>
     <!-- Mobile Navigation -->
-    <nav v-if="menuOpen" class="md:hidden flex flex-col gap-2 px-4 py-4 absolute top-[4rem] left-0 w-full bg-primary shadow-lg z-50">
+    <nav v-if="menuOpen" class="md:hidden flex flex-col gap-2 px-4 py-4 absolute top-[4rem] left-0 w-full bg-primary-400 shadow-lg z-50">
       <div class="text-center text-lg font-bold text-primary-caption mb-2">{{ props.activeSectionLabel }}</div>
       <button
         v-for="section in props.sections"
         :key="section.id"
-        :class="[ 'px-4 py-2 rounded-lg transition',
-          props.activeSection === section.id ? 'bg-secondary text-white' : 'bg-primary text-primary-caption hover:bg-secondary hover:text-white']"
+        :class="[ 'px-4 py-2 rounded-lg transition font-bold',
+          props.activeSection === section.id ? 'bg-secondary text-white' : 'bg-primary-400 text-primary-caption hover:bg-secondary hover:text-white']"
         @click="() => { emit('navigate', section.id); menuOpen = false; }"
       >
         {{ section.label }}

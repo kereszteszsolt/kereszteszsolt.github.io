@@ -27,7 +27,7 @@ const defaultPicture = 'https://ui-avatars.com/api/?name=User&background=ccc&col
         class="w-12 h-12 self-center rounded-full object-cover border-2 border-tertiary shadow"
       />
       <!-- Active Section Label (centered) -->
-      <div class="hidden md:block flex-1 text-center text-lg font-bold text-primary-caption">
+      <div class="flex md:hidden flex-1 self-center justify-center text-lg font-bold text-primary-caption">
         {{ props.activeSectionLabel }}
       </div>
       <!-- Desktop Navigation -->
@@ -90,7 +90,6 @@ const defaultPicture = 'https://ui-avatars.com/api/?name=User&background=ccc&col
     <!-- Mobile Navigation -->
     <nav v-if="menuOpen" class="md:hidden flex flex-col gap-2 px-4 py-4 absolute top-[4rem] left-0 w-full z-50 rounded-b-2xl shadow-lg border-t border-secondary-700 backdrop-blur-md pr-2"
       style="background: linear-gradient(to bottom, var(--color-secondary-400) 0%, var(--color-secondary-700) 100%); background-color: rgba(34,139,34,0.7);">
-      <div class="text-center text-lg font-bold text-primary-caption mb-2">{{ props.activeSectionLabel }}</div>
       <button
         v-for="section in props.sections"
         :key="section.id"

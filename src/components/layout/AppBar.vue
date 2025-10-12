@@ -69,35 +69,58 @@ const defaultPicture = 'https://ui-avatars.com/api/?name=User&background=ccc&col
       </nav>
       <!-- Burger Menu Button -->
       <button
-        class="md:hidden flex flex-col justify-center items-center w-10 h-10"
+        class="md:hidden flex flex-col justify-center items-center w-10 h-10 self-center pr-2"
         @click="menuOpen = !menuOpen"
         aria-label="Toggle navigation menu"
       >
         <span
-          class="block w-6 h-0.5 bg-secondary mb-1 transition-transform duration-300"
+          class="block w-6 h-0.5 bg-secondary-490 mb-1 transition-transform duration-300"
           :class="menuOpen ? 'rotate-45 translate-y-1.5' : ''"
         ></span>
         <span
-          class="block w-6 h-0.5 bg-secondary mb-1 transition-all duration-300"
+          class="block w-6 h-0.5 bg-secondary-490 mb-1 transition-all duration-300"
           :class="menuOpen ? 'opacity-0 scale-x-0' : ''"
         ></span>
         <span
-          class="block w-6 h-0.5 bg-secondary transition-transform duration-300"
+          class="block w-6 h-0.5 bg-secondary-490 transition-transform duration-300"
           :class="menuOpen ? '-rotate-45 -translate-y-1.5' : ''"
         ></span>
       </button>
     </div>
     <!-- Mobile Navigation -->
-    <nav v-if="menuOpen" class="md:hidden flex flex-col gap-2 px-4 py-4 absolute top-[4rem] left-0 w-full bg-primary-400 shadow-lg z-50">
+    <nav v-if="menuOpen" class="md:hidden flex flex-col gap-2 px-4 py-4 absolute top-[4rem] left-0 w-full z-50 rounded-b-2xl shadow-lg border-t border-secondary-700 backdrop-blur-md pr-2"
+      style="background: linear-gradient(to bottom, var(--color-secondary-400) 0%, var(--color-secondary-700) 100%); background-color: rgba(34,139,34,0.7);">
       <div class="text-center text-lg font-bold text-primary-caption mb-2">{{ props.activeSectionLabel }}</div>
       <button
         v-for="section in props.sections"
         :key="section.id"
-        :class="[ 'px-4 py-2 rounded-lg transition font-bold',
-          props.activeSection === section.id ? 'bg-secondary text-white' : 'bg-primary-400 text-primary-caption hover:bg-secondary hover:text-white']"
+        class="group px-4 py-2 rounded-lg transition text-lg font-bold border border-transparent relative overflow-hidden"
+        :style="
+          props.activeSection === section.id
+            ? 'background: linear-gradient(to bottom, var(--color-secondary-300), var(--color-secondary-100)); color: var(--color-secondary-900); box-shadow: 0 4px 24px 0 rgba(34,139,34,0.25); border: 1px solid var(--color-secondary-200);'
+            : ''
+        "
+        :class="[
+          props.activeSection === section.id
+            ? ''
+            : 'bg-transparent text-primary-caption',
+        ]"
         @click="() => { emit('navigate', section.id); menuOpen = false; }"
       >
-        {{ section.label }}
+        <span
+          class="relative z-10"
+          :class="[
+            props.activeSection === section.id ? 'font-bold' : 'group-hover:text-secondary-900',
+            'transition-colors duration-200'
+          ]"
+        >
+          {{ section.label }}
+        </span>
+        <span
+          v-if="props.activeSection !== section.id"
+          class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
+          style="background: linear-gradient(to bottom, var(--color-secondary-400), var(--color-secondary-700)); backdrop-filter: blur(2px); border-radius: 0.5rem;"
+        ></span>
       </button>
     </nav>
   </header>

@@ -18,7 +18,7 @@ const defaultPicture = 'https://ui-avatars.com/api/?name=User&background=ccc&col
 </script>
 
 <template>
-  <header class="bg-primary text-primary-caption shadow-md w-full h-[4rem] flex fixed top-0 left-0 z-50">
+  <header class="text-primary-caption shadow-md w-full h-[4rem] flex fixed top-0 left-0 z-50" style="background: linear-gradient(to bottom, var(--color-primary), var(--color-primary-700));">
     <div class="flex justify-between w-full pl-2">
       <!-- Profile Picture -->
       <img

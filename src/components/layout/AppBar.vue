@@ -19,12 +19,12 @@ const defaultPicture = 'https://ui-avatars.com/api/?name=User&background=ccc&col
 
 <template>
   <header class="fixed top-0 left-0 z-50 w-full h-16 flex bg-gradient-to-b from-primary to-primary-700 text-primary-caption shadow-md">
-    <div class="flex justify-between items-center w-full px-3 sm:px-4">
+    <div class="flex justify-between items-center w-full">
       <!-- Profile Picture -->
       <img
         :src="props.profileImage || defaultPicture"
         alt="Profile Picture"
-        class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-tertiary shadow-sm"
+        class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-tertiary shadow-sm ml-3 sm:ml-4"
       />
 
       <!-- Active Section Label (mobile only, centered) -->
@@ -33,7 +33,7 @@ const defaultPicture = 'https://ui-avatars.com/api/?name=User&background=ccc&col
       </div>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex gap-1.5 lg:gap-2 rounded-bl-2xl shadow-lg border border-secondary-700/50 backdrop-blur-md bg-gradient-to-b from-secondary-400/90 to-secondary-700 pr-3">
+      <nav class="hidden md:flex items-center gap-1.5 lg:gap-2 h-full rounded-bl-2xl shadow-lg border-l border-b border-secondary-700/50 backdrop-blur-md bg-gradient-to-b from-secondary-400/90 to-secondary-700 px-3">
         <button
           v-for="section in props.sections"
           :key="section.id"
@@ -49,7 +49,7 @@ const defaultPicture = 'https://ui-avatars.com/api/?name=User&background=ccc&col
 
       <!-- Burger Menu Button -->
       <button
-        class="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1"
+        class="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1 mr-3"
         @click="menuOpen = !menuOpen"
         aria-label="Toggle navigation menu"
       >

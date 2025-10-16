@@ -24,7 +24,10 @@ const defaultPicture = 'https://ui-avatars.com/api/?name=User&background=ccc&col
       <img
         :src="props.profileImage || defaultPicture"
         alt="Profile Picture"
-        class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-tertiary shadow-sm ml-3 sm:ml-4"
+        class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-tertiary hover:border-secondary-400 shadow-sm ml-3 sm:ml-4 cursor-pointer focus-visible:ring-2 focus-visible:ring-primary"
+        tabindex="0"
+        @click="emit('navigate', 'home')"
+        @keydown.enter.space="emit('navigate', 'home')"
       />
 
       <!-- Active Section Label (mobile only, centered) -->

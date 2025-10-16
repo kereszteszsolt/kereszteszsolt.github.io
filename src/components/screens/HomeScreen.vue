@@ -13,7 +13,7 @@ const today = new Date('2025-10-09').toLocaleDateString('en-GB', { year: 'numeri
       <img
         :src="profileInfo.photo"
         alt="Profile"
-        class="w-28 h-28 sm:w-32 sm:h-32 rounded-full border-4 border-tertiary object-cover shadow-lg"
+        class="w-28 h-28 sm:w-32 sm:h-32 rounded-full border-4 border-tertiary hover:border-secondary-400 object-cover shadow-lg"
       />
       <h1 class="text-xl sm:text-2xl font-bold text-primary text-center">
         {{ profileInfo.fullName }}

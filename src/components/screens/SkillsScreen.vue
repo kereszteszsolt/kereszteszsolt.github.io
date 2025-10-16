@@ -6,7 +6,6 @@ import { softwareDevelopment } from '@/data/software-development.ts'
 import { personalProjects } from '@/data/personal-projects.ts'
 import { ref, computed, nextTick } from 'vue'
 import type { SkillType, PersonalProject, Company } from '@/models/skills.model'
-import FlexPackWrapper from '@/components/layout/FlexPackWrapper.vue'
 
 const selectedType = ref<SkillType | ''>('')
 const selectedProject = ref<PersonalProject | ''>('')
@@ -153,7 +152,7 @@ defineExpose({
         <div v-for="sub in category.subcategories" :key="sub.title" class="mb-2">
           <div class="font-semibold text-gray-700">{{ sub.title }}</div>
           <div class="flex flex-wrap gap-2 mt-1">
-            <FlexPackWrapper class="mt-1">
+<!--            <FlexPackWrapper class="mt-1">--> <!-- deactivated temporarily / TODO FixME-->
               <span
                 v-for="skill in sub.skills"
                 :key="skill.name"
@@ -161,7 +160,7 @@ defineExpose({
               >
                 {{ skill.name }}
               </span>
-            </FlexPackWrapper>
+<!--            </FlexPackWrapper>-->
           </div>
         </div>
       </div>

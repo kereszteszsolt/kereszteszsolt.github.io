@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-
 interface Props {
   columns?: number;
   columnGap?: string;
@@ -8,29 +6,26 @@ interface Props {
   itemClass?: string;
 }
 
-const props = withDefaults(defineProps<Props>(), {
+// Register props with defaults; no assignment required because styles use v-bind(...) to pick values
+withDefaults(defineProps<Props>(), {
   columns: 2,
   columnGap: '1.5rem',
   mobileColumns: 1,
   itemClass: ''
 });
-
-const gridStyle = computed(() => ({
-  columns: props.columns,
-  columnGap: props.columnGap
-}));
 </script>
 
 <template>
-  <div class="masonry-grid" :style="gridStyle">
+  <div class="masonry-grid">
     <slot />
   </div>
 </template>
 
 <style scoped>
 .masonry-grid {
-  columns: 2;
-  column-gap: 1.5rem;
+  /* use v-bind to pick up prop values in the component style */
+  columns: v-bind(columns);
+  column-gap: v-bind(columnGap);
 }
 
 .masonry-grid :deep(> *) {
@@ -49,4 +44,3 @@ const gridStyle = computed(() => ({
   }
 }
 </style>
-

@@ -6,23 +6,46 @@ import { socialLinks } from '@/data/social-profiles.ts';
 
 <template>
   <SectionContainer id="contact">
-    <div class="mb-8 text-center">
-      <h2 class="text-2xl font-bold mb-2">Contact & Social Links</h2>
+    <div class="text-center space-y-3 mb-6">
+      <h2 class="text-2xl sm:text-3xl font-bold">Contact & Social Links</h2>
     </div>
-    <div class="flex flex-col gap-2 w-full">
-      <div v-for="link in socialLinks" :key="link.url" class="flex items-start py-3 border-b border-gray-200 last:border-b-0">
-        <img v-if="link.icon" :src="link.icon" :alt="link.title + ' icon'" width="48" height="48" class="w-12 h-12 object-contain mr-4 flex-shrink-0" />
+
+    <div class="flex flex-col gap-3 sm:gap-4 w-full">
+      <div
+        v-for="link in socialLinks"
+        :key="link.url"
+        class="flex items-start gap-3 sm:gap-4 py-3 sm:py-4 border-b border-gray-200 last:border-b-0"
+      >
+        <img
+          v-if="link.icon"
+          :src="link.icon"
+          :alt="link.title + ' icon'"
+          class="w-10 h-10 sm:w-12 sm:h-12 object-contain flex-shrink-0"
+        />
         <div class="flex-1 min-w-0">
-          <div class="flex items-baseline gap-2 mb-0.5">
-            <span class="font-semibold">{{ link.title }}</span>
-            <span v-if="link.identifier" class="text-yellow-500 font-medium text-base">{{ link.identifier }}</span>
+          <div class="flex flex-wrap items-baseline gap-2 mb-1">
+            <span class="font-semibold text-sm sm:text-base">{{ link.title }}</span>
+            <span v-if="link.identifier" class="text-yellow-600 font-medium text-xs sm:text-sm">
+              {{ link.identifier }}
+            </span>
           </div>
-          <a :href="link.url" target="_blank" rel="noopener" class="text-blue-600 underline break-all text-sm hover:text-blue-800">{{ link.url }}</a><br>
-          <span class="text-gray-600 text-sm">{{ link.description }}</span>
+          <a
+            :href="link.url"
+            target="_blank"
+            rel="noopener"
+            class="text-blue-600 hover:text-blue-800 underline break-all text-xs sm:text-sm transition-colors"
+          >
+            {{ link.url }}
+          </a>
+          <p class="text-gray-600 text-xs sm:text-sm mt-1">{{ link.description }}</p>
         </div>
       </div>
     </div>
-    <div class="text-gray-400 text-xs mt-10 text-center">(*) STEM: Science, Technology, Engineering, and Math</div>
+
+    <p class="text-gray-400 text-xs text-center mt-8">
+      (*) STEM: Science, Technology, Engineering, and Math
+    </p>
+
     <SectionDivider />
   </SectionContainer>
 </template>

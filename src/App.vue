@@ -9,6 +9,7 @@ import SkillsScreen from "@/components/screens/SkillsScreen.vue";
 import ProjectScreen from "@/components/screens/ProjectScreen.vue";
 import ContactScreen from "@/components/screens/ContactScreen.vue";
 import LegalScreen from "@/components/screens/LegalScreen.vue";
+import type { Company, PersonalProject } from "@/models/skills.model";
 
 const sections = [
   {id: "home", label: "Home"},
@@ -57,7 +58,7 @@ function updateActiveSection() {
 
 function handleShowSkillsForCompany(companyId: string) {
   if (skillsScreenRef.value) {
-    skillsScreenRef.value.handleShowSkillsForCompany(companyId);
+    skillsScreenRef.value.handleShowSkillsForCompany(companyId as Company);
   }
 }
 
@@ -69,7 +70,7 @@ function handleShowAllWorkSkills() {
 
 function handleShowSkillsForProject(projectId: string) {
   if (skillsScreenRef.value) {
-    skillsScreenRef.value.handleShowSkillsForProject(projectId);
+    skillsScreenRef.value.handleShowSkillsForProject(projectId as PersonalProject);
   }
 }
 
@@ -103,7 +104,7 @@ onUnmounted(() => {
         :active-section-label="sections.find(s => s.id === activeSection)?.label || ''"
         @navigate="handleNavigate"
     />
-    <main ref="mainElement" class="min-h-[calc(100vh-3rem-4rem)] overflow-y-auto mt-[4rem]">
+    <main ref="mainElement" class="flex-1 overflow-y-auto mt-16">
       <HomeScreen/>
       <WorkExperienceScreen
           @show-skills-for-company="handleShowSkillsForCompany"
@@ -126,13 +127,13 @@ onUnmounted(() => {
 main::-webkit-scrollbar {
     width: 12px;
     background: var(--color-neutral-variant);
-    border-radius: var(--radius-md);
 }
 
 main::-webkit-scrollbar-thumb {
     background: var(--color-primary-300);
-    border-radius: var(--radius-xl);
+    border-radius: 999px;
     border: 3px solid var(--color-neutral-variant);
+    transition: background 0.2s;
 }
 
 main::-webkit-scrollbar-thumb:hover {
@@ -141,10 +142,8 @@ main::-webkit-scrollbar-thumb:hover {
 
 main::-webkit-scrollbar-track {
     background: var(--color-neutral-variant-darker);
-    border-radius: var(--radius-md);
 }
 
-/* Firefox */
 main {
     scrollbar-width: thin;
     scrollbar-color: var(--color-primary-300) var(--color-neutral-variant-darker);

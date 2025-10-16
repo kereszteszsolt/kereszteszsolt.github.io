@@ -1,8 +1,9 @@
 <template>
   <SectionContainer id="projects">
-    <div class="mb-8 text-center">
-      <h2 class="text-2xl font-bold mb-4">Personal Projects</h2>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+    <div class="text-center space-y-4 sm:space-y-5 mb-6">
+      <h2 class="text-2xl sm:text-3xl font-bold">Personal Projects</h2>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
         <InfoCard
           icon-src="/assets/icons/architecture-plan-icon.png"
           icon-alt="Projects"
@@ -10,83 +11,75 @@
           label="Projects"
         />
       </div>
-      <button @click="handleShowAllPersonalProjectsSkills"
-        class="text-base px-4 py-2 rounded border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 font-medium">
+
+      <button
+        @click="handleShowAllPersonalProjectsSkills"
+        class="px-4 py-2 rounded-lg border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 font-medium text-sm sm:text-base"
+      >
         See All Personal Project Skills
       </button>
     </div>
+
     <MasonryGrid>
-      <GlassCard v-for="project in personalProjects" :key="project.projectId" custom-class="p-5">
-        <div class="text-lg font-bold text-primary mb-2 hover:text-primary-600 transition-colors">{{ project.name }}</div>
-        <div v-if="project.description" class="text-sm text-gray-700 mb-3 leading-relaxed">{{ project.description }}</div>
-        <FlexPackWrapper class="mb-3">
+      <GlassCard v-for="project in personalProjects" :key="project.projectId" custom-class="p-4 sm:p-5">
+        <h3 class="text-base sm:text-lg font-bold text-primary mb-2 hover:text-primary-600 transition-colors">
+          {{ project.name }}
+        </h3>
+        <p v-if="project.description" class="text-xs sm:text-sm text-gray-700 mb-3 leading-relaxed">
+          {{ project.description }}
+        </p>
+
+        <FlexPackWrapper class="gap-2">
           <button
             v-if="project.projectId"
             @click="handleShowSkillsForProject(project.projectId)"
             title="Filter skills used in this project and jump to skills section"
-            class="text-xs px-3 py-1.5 rounded border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 font-medium"
+            class="px-2.5 sm:px-3 py-1.5 rounded-lg border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 font-medium text-xs flex items-center gap-1"
           >
-            🎯 View Project Skills
+            🎯 View Skills
           </button>
-          <template v-if="Array.isArray(project.links)">
-            <template v-for="(link, idx) in project.links" :key="'link-' + idx">
-              <button
-                v-if="link && link.url"
-                type="button"
-                @click="openUrl(link.url)"
-                :title="link.url"
-                class="text-xs px-3 py-1.5 rounded border border-secondary text-secondary hover:bg-secondary hover:text-white transition-all duration-200 font-medium flex items-center gap-1"
-              >
-                <img
-                  src="/assets/icons/world-globe-line-icon.png"
-                  alt="Website"
-                  class="w-4 h-4"
-                />
-                {{ link.title || 'Visit Project' }}
-              </button>
-            </template>
-          </template>
-          <template v-if="Array.isArray(project.repos)">
-            <template v-for="(repo, idx) in project.repos" :key="'repo-' + idx">
-              <button
-                v-if="repo && repo.url"
-                type="button"
-                @click="openUrl(repo.url)"
-                :title="repo.url"
-                class="text-xs px-3 py-1.5 rounded border border-secondary text-secondary hover:bg-secondary hover:text-white transition-all duration-200 font-medium flex items-center gap-1"
-                aria-label="View on GitHub"
-              >
-                <img
-                  src="/assets/icons/github-icon.png"
-                  alt="GitHub"
-                  class="w-4 h-4"
-                />
-                {{ repo.title || 'GitHub' }}
-              </button>
-            </template>
-          </template>
-          <template v-if="Array.isArray(project.videos)">
-            <template v-for="(video, idx) in project.videos" :key="'video-' + idx">
-              <button
-                v-if="video && video.url"
-                type="button"
-                @click="openUrl(video.url)"
-                :title="video.url"
-                class="text-xs px-3 py-1.5 rounded border border-tertiary text-tertiary hover:bg-tertiary hover:text-white transition-all duration-200 font-medium flex items-center gap-1"
-                aria-label="Watch on YouTube"
-              >
-                <img
-                  src="/assets/icons/youtube-color-icon.png"
-                  alt="YouTube"
-                  class="w-4 h-4"
-                />
-                {{ video.title || 'Watch Video' }}
-              </button>
-            </template>
-          </template>
+
+          <button
+            v-for="(link, idx) in (project.links || []).filter(l => l?.url)"
+            :key="'link-' + idx"
+            type="button"
+            @click="openUrl(link.url)"
+            :title="link.url"
+            class="px-2.5 sm:px-3 py-1.5 rounded-lg border border-secondary text-secondary hover:bg-secondary hover:text-white transition-all duration-200 font-medium text-xs flex items-center gap-1"
+          >
+            <img src="/assets/icons/world-globe-line-icon.png" alt="" class="w-3.5 h-3.5" />
+            {{ link.title || 'Visit' }}
+          </button>
+
+          <button
+            v-for="(repo, idx) in (project.repos || []).filter(r => r?.url)"
+            :key="'repo-' + idx"
+            type="button"
+            @click="openUrl(repo.url)"
+            :title="repo.url"
+            class="px-2.5 sm:px-3 py-1.5 rounded-lg border border-secondary text-secondary hover:bg-secondary hover:text-white transition-all duration-200 font-medium text-xs flex items-center gap-1"
+            aria-label="View on GitHub"
+          >
+            <img src="/assets/icons/github-icon.png" alt="" class="w-3.5 h-3.5" />
+            {{ repo.title || 'GitHub' }}
+          </button>
+
+          <button
+            v-for="(video, idx) in (project.videos || []).filter(v => v?.url)"
+            :key="'video-' + idx"
+            type="button"
+            @click="openUrl(video.url)"
+            :title="video.url"
+            class="px-2.5 sm:px-3 py-1.5 rounded-lg border border-tertiary text-tertiary hover:bg-tertiary hover:text-white transition-all duration-200 font-medium text-xs flex items-center gap-1"
+            aria-label="Watch on YouTube"
+          >
+            <img src="/assets/icons/youtube-color-icon.png" alt="" class="w-3.5 h-3.5" />
+            {{ video.title || 'Video' }}
+          </button>
         </FlexPackWrapper>
       </GlassCard>
     </MasonryGrid>
+
     <SectionDivider />
   </SectionContainer>
 </template>

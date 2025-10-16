@@ -119,36 +119,53 @@ defineExpose({
 
 <template>
   <SectionContainer id="skills">
-    <div class="mb-8 text-center">
-      <h2 class="text-2xl font-bold mb-2">Skills</h2>
+    <div class="text-center space-y-4 mb-6">
+      <h2 class="text-2xl sm:text-3xl font-bold">Skills</h2>
 
-      <div class="mb-4 flex flex-wrap gap-4 items-center justify-center bg-gradient-to-r from-primary/10 via-secondary/10 to-tertiary/10 backdrop-blur-md rounded-xl p-4 border border-white/30 shadow-sm">
-        <label class="font-semibold">Filter by:</label>
-        <select v-model="selectedType" class="border border-white/40 rounded px-3 py-2 bg-neutral-variant/80 backdrop-blur-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all">
+      <div class="flex flex-wrap gap-2.5 sm:gap-3 items-center justify-center bg-gradient-to-r from-primary/10 via-secondary/10 to-tertiary/10 backdrop-blur-md rounded-xl p-3 sm:p-4 border border-white/30 shadow-sm">
+        <label class="font-semibold text-sm sm:text-base w-full sm:w-auto">Filter by:</label>
+
+        <select
+          v-model="selectedType"
+          class="flex-1 sm:flex-none min-w-0 border border-white/40 rounded-lg px-2.5 sm:px-3 py-2 bg-neutral-variant/80 backdrop-blur-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm"
+        >
           <option value="">All Types</option>
           <option value="work-experience">Used at Work</option>
           <option value="personal-projects">Personal Projects</option>
           <option value="experimental">Experimental</option>
         </select>
-        <select v-model="selectedProject" class="border border-white/40 rounded px-3 py-2 bg-neutral-variant/80 backdrop-blur-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all">
+
+        <select
+          v-model="selectedProject"
+          class="flex-1 sm:flex-none min-w-0 border border-white/40 rounded-lg px-2.5 sm:px-3 py-2 bg-neutral-variant/80 backdrop-blur-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm"
+        >
           <option value="">All Projects</option>
           <option v-for="project in projectOptions" :key="project.value" :value="project.value">
             {{ project.label }}
           </option>
         </select>
-        <select v-model="selectedCompany" class="border border-white/40 rounded px-3 py-2 bg-neutral-variant/80 backdrop-blur-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all">
+
+        <select
+          v-model="selectedCompany"
+          class="flex-1 sm:flex-none min-w-0 border border-white/40 rounded-lg px-2.5 sm:px-3 py-2 bg-neutral-variant/80 backdrop-blur-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm"
+        >
           <option value="">All Companies</option>
           <option v-for="company in companyOptions" :key="company" :value="company">
             {{ company }}
           </option>
         </select>
-        <button @click="resetFilters" class="border border-red-400 rounded px-4 py-2 bg-red-500/90 text-white backdrop-blur-sm shadow-sm hover:bg-red-600 transition-all">
+
+        <button
+          @click="resetFilters"
+          class="w-full sm:w-auto border border-red-400 rounded-lg px-3.5 sm:px-4 py-2 bg-red-500/90 text-white backdrop-blur-sm shadow-sm hover:bg-red-600 transition-all text-sm font-medium"
+        >
           Reset Filters
         </button>
       </div>
     </div>
+
     <MasonryGrid>
-      <GlassCard v-for="category in filteredCategories" :key="category.title" custom-class="p-4">
+      <GlassCard v-for="category in filteredCategories" :key="category.title" custom-class="p-4 sm:p-5">
         <div class="text-lg font-bold text-primary mb-2">{{ category.title }}</div>
         <div v-for="sub in category.subcategories" :key="sub.title" class="mb-2">
           <div class="font-semibold text-gray-700">{{ sub.title }}</div>

@@ -9,7 +9,7 @@ interface Props {
 // Register props with defaults; no assignment required because styles use v-bind(...) to pick values
 withDefaults(defineProps<Props>(), {
   columns: 2,
-  columnGap: '1.5rem',
+  columnGap: '1.25rem',
   mobileColumns: 1,
   itemClass: ''
 });
@@ -30,13 +30,17 @@ withDefaults(defineProps<Props>(), {
 
 .masonry-grid :deep(> *) {
   break-inside: avoid;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   display: block;
 }
 
 @media (max-width: 768px) {
   .masonry-grid {
     columns: v-bind(mobileColumns);
+  }
+
+  .masonry-grid :deep(> *) {
+    margin-bottom: 1rem;
   }
 }
 </style>

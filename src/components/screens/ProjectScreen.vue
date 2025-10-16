@@ -3,7 +3,7 @@
     <div class="mb-8 text-center">
       <h2 class="text-2xl font-bold mb-4">Personal Projects</h2>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-        <div class="flex items-center gap-3 bg-neutral shadow rounded-xl px-4 sm:px-6 py-3">
+        <div class="flex items-center gap-3 bg-neutral-variant/70 backdrop-blur-md shadow-sm rounded-xl px-4 sm:px-6 py-3 border border-white/40">
           <img src="/assets/icons/architecture-plan-icon.png" alt="Projects" class="w-8 h-8" />
           <div class="text-left">
             <div class="text-2xl font-extrabold text-primary">{{ totalProjects }}</div>
@@ -17,9 +17,9 @@
       </button>
     </div>
     <MasonryGrid>
-      <div v-for="project in personalProjects" :key="project.projectId">
-        <div class="text-lg font-bold text-primary mb-1">{{ project.name }}</div>
-        <div v-if="project.description" class="text-sm text-gray-600 mb-2">{{ project.description }}</div>
+      <GlassCard v-for="project in personalProjects" :key="project.projectId" custom-class="p-5">
+        <div class="text-lg font-bold text-primary mb-2 hover:text-primary-600 transition-colors">{{ project.name }}</div>
+        <div v-if="project.description" class="text-sm text-gray-700 mb-3 leading-relaxed">{{ project.description }}</div>
         <FlexPackWrapper class="mb-3">
           <button
             v-if="project.projectId"
@@ -86,7 +86,7 @@
             </template>
           </template>
         </FlexPackWrapper>
-      </div>
+      </GlassCard>
     </MasonryGrid>
     <SectionDivider />
   </SectionContainer>
@@ -97,6 +97,7 @@ import SectionContainer from "@/components/layout/SectionContainer.vue";
 import SectionDivider from "@/components/layout/SectionDivider.vue";
 import MasonryGrid from "@/components/layout/MasonryGrid.vue";
 import FlexPackWrapper from "@/components/layout/FlexPackWrapper.vue";
+import GlassCard from "@/components/layout/GlassCard.vue";
 import { personalProjects } from "@/data/personal-projects.ts";
 import { computed, defineEmits } from "vue";
 

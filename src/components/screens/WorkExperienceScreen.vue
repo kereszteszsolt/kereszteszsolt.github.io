@@ -3,14 +3,14 @@
     <div class="mb-8 text-center">
       <h2 class="text-2xl font-bold mb-4">Work Experience</h2>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-        <div class="flex items-center gap-3 bg-neutral shadow rounded-xl px-4 sm:px-6 py-3">
+        <div class="flex items-center gap-3 bg-neutral-variant/70 backdrop-blur-md shadow-sm rounded-xl px-4 sm:px-6 py-3 border border-white/40">
           <img src="/assets/icons/briefcase-bag-color-icon.png" alt="Years" class="w-8 h-8" />
           <div class="text-left">
             <div class="text-2xl font-extrabold text-primary">{{ totalYears }}+</div>
             <div class="text-sm text-gray-600 font-medium">Years Experience</div>
           </div>
         </div>
-        <div class="flex items-center gap-3 bg-neutral shadow rounded-xl px-4 sm:px-6 py-3">
+        <div class="flex items-center gap-3 bg-neutral-variant/70 backdrop-blur-md shadow-sm rounded-xl px-4 sm:px-6 py-3 border border-white/40">
           <img src="/assets/icons/flats-residential-apartment-icon.png" alt="Companies" class="w-8 h-8" />
           <div class="text-left">
             <div class="text-2xl font-extrabold text-primary">{{ totalCompanies }}</div>
@@ -24,7 +24,7 @@
       </button>
     </div>
     <div class="flex flex-col gap-8">
-      <div v-for="exp in workExperience" :key="exp.companyId" class="w-full bg-neutral rounded-lg shadow p-4 sm:p-6">
+      <GlassCard v-for="exp in workExperience" :key="exp.companyId" custom-class="p-4 sm:p-6">
         <div class="text-lg font-bold text-primary mb-1">{{ exp.company }}</div>
         <div class="font-semibold text-gray-700 mb-1">{{ exp.position }}</div>
         <div class="text-sm text-gray-500 mb-1">
@@ -36,7 +36,7 @@
           class="text-xs px-3 py-1.5 rounded border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 font-medium mt-2">
           See Related Skills
         </button>
-      </div>
+      </GlassCard>
     </div>
     <SectionDivider />
   </SectionContainer>
@@ -45,6 +45,7 @@
 <script setup lang="ts">
 import SectionContainer from "@/components/layout/SectionContainer.vue";
 import SectionDivider from "@/components/layout/SectionDivider.vue";
+import GlassCard from "@/components/layout/GlassCard.vue";
 import { workExperience } from "@/data/work-expereince.ts";
 import { computed, defineEmits } from "vue";
 
@@ -53,7 +54,7 @@ const emit = defineEmits(["jumpToSkills", "showSkillsForCompany", "showAllWorkSk
 const totalYears = computed(() => workExperience.reduce((sum, exp) => sum + (Number(exp.years) || 0), 0));
 const totalCompanies = computed(() => workExperience.length);
 
-function handleShowSkillsForCompany(companyId) {
+function handleShowSkillsForCompany(companyId: string) {
   emit("showSkillsForCompany", companyId);
 }
 function handleShowAllWorkSkills() {

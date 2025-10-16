@@ -30,10 +30,6 @@ withDefaults(defineProps<Props>(), {
 
 .masonry-grid :deep(> *) {
   break-inside: avoid;
-  background: var(--color-neutral);
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  padding: 1rem;
   margin-bottom: 1.5rem;
   display: block;
 }

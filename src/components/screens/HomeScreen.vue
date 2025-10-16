@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import SectionContainer from '@/components/layout/SectionContainer.vue';
 import SectionDivider from '@/components/layout/SectionDivider.vue';
+import GlassCard from '@/components/layout/GlassCard.vue';
 import {profileInfo} from '@/data/profile-info.ts';
 
 const today = new Date('2025-10-09').toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -20,12 +21,12 @@ const today = new Date('2025-10-09').toLocaleDateString('en-GB', { year: 'numeri
       <div class="text-sm text-gray-400">{{ today }}</div>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full">
-      <div v-for="(card, idx) in profileInfo.infoCard" :key="card.label" class="flex flex-col items-center bg-gray-50 rounded-lg shadow p-4 h-full">
+      <GlassCard v-for="(card, idx) in profileInfo.infoCard" :key="card.label" customClass="flex flex-col items-center p-4 h-full">
         <img v-if="card.icon" :src="card.icon" alt="" class="w-10 h-10 mb-2" />
         <div class="font-semibold text-primary text-center">{{ card.label }}</div>
         <div class="text-sm text-gray-700 text-center mt-1">{{ card.details }}</div>
         <div v-if="card.info" class="text-xs text-gray-400 mt-1 text-center">{{ card.info }}</div>
-      </div>
+      </GlassCard>
     </div>
     <SectionDivider />
   </SectionContainer>

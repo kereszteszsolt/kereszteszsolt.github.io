@@ -4,7 +4,7 @@ import SectionDivider from '@/components/layout/SectionDivider.vue'
 import GlassCard from '@/components/layout/GlassCard.vue'
 import { profileInfo } from '@/data/profile-info.ts'
 
-const today = new Date('2025-10-09').toLocaleDateString('en-GB', {
+const lastUpdated = new Date('2025-10-16').toLocaleDateString('en-GB', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
@@ -26,9 +26,9 @@ const today = new Date('2025-10-09').toLocaleDateString('en-GB', {
       <p class="text-xs text-gray-400 italic text-center max-w-sm px-2">
         <b>{{ profileInfo.fullName }}</b> (family name: <b>{{ profileInfo.lastName }}</b
         >, given name: <b>{{ profileInfo.firstName }}</b
-        >).
+        >)
       </p>
-      <time class="text-xs sm:text-sm text-gray-400">{{ today }}</time>
+      <time class="text-xs sm:text-sm text-gray-400">{{ lastUpdated }}</time>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 w-full">

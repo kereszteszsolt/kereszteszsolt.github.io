@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import SectionContainer from '@/components/layout/SectionContainer.vue';
-import SectionDivider from '@/components/layout/SectionDivider.vue';
-import GlassCard from '@/components/layout/GlassCard.vue';
-import {profileInfo} from '@/data/profile-info.ts';
+import SectionContainer from '@/components/layout/SectionContainer.vue'
+import SectionDivider from '@/components/layout/SectionDivider.vue'
+import GlassCard from '@/components/layout/GlassCard.vue'
+import { profileInfo } from '@/data/profile-info.ts'
 
-const today = new Date('2025-10-09').toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+const today = new Date('2025-10-09').toLocaleDateString('en-GB', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+})
 </script>
 
 <template>
@@ -20,7 +24,9 @@ const today = new Date('2025-10-09').toLocaleDateString('en-GB', { year: 'numeri
       </h1>
       <p class="text-base sm:text-lg text-gray-600 text-center">{{ profileInfo.title }}</p>
       <p class="text-xs text-gray-400 italic text-center max-w-sm px-2">
-        Info: The full name above is from a dedicated field. Family name: <b>{{ profileInfo.lastName }}</b>, given name: <b>{{ profileInfo.firstName }}</b>.
+        <b>{{ profileInfo.fullName }}</b> (family name: <b>{{ profileInfo.lastName }}</b
+        >, given name: <b>{{ profileInfo.firstName }}</b
+        >).
       </p>
       <time class="text-xs sm:text-sm text-gray-400">{{ today }}</time>
     </div>
@@ -32,7 +38,9 @@ const today = new Date('2025-10-09').toLocaleDateString('en-GB', { year: 'numeri
         customClass="flex flex-col items-center p-4 sm:p-5 h-full"
       >
         <img v-if="card.icon" :src="card.icon" alt="" class="w-9 h-9 sm:w-10 sm:h-10 mb-2" />
-        <div class="font-semibold text-primary text-center text-sm sm:text-base">{{ card.label }}</div>
+        <div class="font-semibold text-primary text-center text-sm sm:text-base">
+          {{ card.label }}
+        </div>
         <div class="text-xs sm:text-sm text-gray-700 text-center mt-1">{{ card.details }}</div>
         <div v-if="card.info" class="text-xs text-gray-400 mt-1.5 text-center">{{ card.info }}</div>
       </GlassCard>
@@ -42,6 +50,4 @@ const today = new Date('2025-10-09').toLocaleDateString('en-GB', { year: 'numeri
   </SectionContainer>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -6,7 +6,8 @@ import SectionDivider from "@/components/layout/SectionDivider.vue";
 
 <template>
   <SectionContainer id="legal">
-    <div class="w-full max-w-4xl mx-auto px-4 py-8 space-y-12">
+    <!-- Rely on SectionContainer for horizontal padding; keep vertical spacing here -->
+    <div class="w-full py-8 space-y-12">
       <h1 class="text-4xl font-bold mb-8">Legal Information</h1>
 
       <!-- Privacy Policy -->

@@ -3,7 +3,7 @@
     <div class="mb-8 text-center">
       <h2 class="text-2xl font-bold mb-4">Personal Projects</h2>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-        <div class="flex items-center gap-3 bg-neutral shadow rounded-xl px-6 py-3">
+        <div class="flex items-center gap-3 bg-neutral shadow rounded-xl px-4 sm:px-6 py-3">
           <img src="/assets/icons/architecture-plan-icon.png" alt="Projects" class="w-8 h-8" />
           <div class="text-left">
             <div class="text-2xl font-extrabold text-primary">{{ totalProjects }}</div>

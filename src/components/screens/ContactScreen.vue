@@ -9,7 +9,7 @@ import { socialLinks } from '@/data/social-profiles.ts';
     <div class="mb-8 text-center">
       <h2 class="text-2xl font-bold mb-2">Contact & Social Links</h2>
     </div>
-    <div class="flex flex-col gap-2 max-w-2xl mx-auto">
+    <div class="flex flex-col gap-2 w-full">
       <div v-for="link in socialLinks" :key="link.url" class="flex items-start py-3 border-b border-gray-200 last:border-b-0">
         <img v-if="link.icon" :src="link.icon" :alt="link.title + ' icon'" width="48" height="48" class="w-12 h-12 object-contain mr-4 flex-shrink-0" />
         <div class="flex-1 min-w-0">

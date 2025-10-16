@@ -3,14 +3,14 @@
     <div class="mb-8 text-center">
       <h2 class="text-2xl font-bold mb-4">Work Experience</h2>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-        <div class="flex items-center gap-3 bg-neutral shadow rounded-xl px-6 py-3">
+        <div class="flex items-center gap-3 bg-neutral shadow rounded-xl px-4 sm:px-6 py-3">
           <img src="/assets/icons/briefcase-bag-color-icon.png" alt="Years" class="w-8 h-8" />
           <div class="text-left">
             <div class="text-2xl font-extrabold text-primary">{{ totalYears }}+</div>
             <div class="text-sm text-gray-600 font-medium">Years Experience</div>
           </div>
         </div>
-        <div class="flex items-center gap-3 bg-neutral shadow rounded-xl px-6 py-3">
+        <div class="flex items-center gap-3 bg-neutral shadow rounded-xl px-4 sm:px-6 py-3">
           <img src="/assets/icons/flats-residential-apartment-icon.png" alt="Companies" class="w-8 h-8" />
           <div class="text-left">
             <div class="text-2xl font-extrabold text-primary">{{ totalCompanies }}</div>
@@ -24,7 +24,7 @@
       </button>
     </div>
     <div class="flex flex-col gap-8">
-      <div v-for="exp in workExperience" :key="exp.companyId" class="w-full bg-neutral rounded-lg shadow p-6">
+      <div v-for="exp in workExperience" :key="exp.companyId" class="w-full bg-neutral rounded-lg shadow p-4 sm:p-6">
         <div class="text-lg font-bold text-primary mb-1">{{ exp.company }}</div>
         <div class="font-semibold text-gray-700 mb-1">{{ exp.position }}</div>
         <div class="text-sm text-gray-500 mb-1">

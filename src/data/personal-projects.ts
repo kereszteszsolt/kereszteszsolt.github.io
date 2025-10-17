@@ -5,7 +5,7 @@ export const personalProjects: Project[] = [
     {
         name: "Focus Guard",
         description:
-            "A productivity app that helps you stay focused by blocking distracting websites and apps during your work sessions.",
+            "This is a productivity app that helps you stay focused by blocking distracting websites and apps during your work sessions.",
         links: [
             {
                 title: "Chrome Web Store",
@@ -62,7 +62,7 @@ export const personalProjects: Project[] = [
     {
         name: "Ollama Chat",
         description:
-            "A chat application that integrates with Ollama's language models to provide AI-powered conversations.",
+            "This is a chat application that integrates with Ollama's language models to provide AI-powered conversations.",
         links: [
             {
                 title: "Live Demo",

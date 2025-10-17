@@ -24,12 +24,12 @@ onMounted(() => {
         <div class="space-y-3 text-gray-700 dark:text-gray-300 text-sm sm:text-base">
           <p><strong>Last updated:</strong> October 16, 2025</p>
           <p>
-            This is a <strong>static website</strong> serving as an electronic/online CV (curriculum vitae).
-            The website is hosted and served directly via <strong>GitHub Pages</strong> as a static website.
+            This is a <strong>static website</strong> that serves as an electronic (online) curriculum vitae (CV).
+            It is hosted and delivered directly via <strong>GitHub Pages</strong>.
           </p>
           <p>
             <strong>No data collection:</strong> This website does not collect, store, or process any personal data.
-            It does not use cookies, tracking technologies, analytics tools, databases, or backend systems.
+            It does not use cookies, tracking technologies, analytics tools, databases, or any backend systems.
           </p>
         </div>
       </section>
@@ -40,11 +40,11 @@ onMounted(() => {
         <div class="space-y-3 text-gray-700 dark:text-gray-300 text-sm sm:text-base">
           <p>
             By accessing and using this website, you acknowledge that you do so at your own responsibility.
-            The information provided on this website is for informational purposes only.
+            The information provided on this site is for informational purposes only.
           </p>
           <p>
-            <strong>All rights reserved.</strong> The content of this website, including text, images, and design,
-            is the property of Keresztes Zsolt unless otherwise stated.
+            <strong>All rights reserved.</strong> The content of this website, including all text, images, and design elements,
+            is the intellectual property of Keresztes Zsolt unless otherwise stated.
           </p>
         </div>
       </section>

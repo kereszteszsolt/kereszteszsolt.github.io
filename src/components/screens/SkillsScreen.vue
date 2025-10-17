@@ -3,7 +3,7 @@ import SectionContainer from '../layout/SectionContainer.vue'
 import SectionDivider from '../layout/SectionDivider.vue'
 import MasonryGrid from '../layout/MasonryGrid.vue'
 import GlassCard from '../layout/GlassCard.vue'
-import { softwareDevelopment } from '@/data/software-development.ts'
+import { skills } from '@/data/skills.ts'
 import { personalProjects } from '@/data/personal-projects.ts'
 import { ref, computed, nextTick } from 'vue'
 import type { SkillType, PersonalProject, Company } from '@/models/skills.model'
@@ -17,7 +17,7 @@ const projectOptions = personalProjects.map((p) => ({ value: p.projectId, label:
 // Gather all unique company names from all skills' usedAt
 const companyOptions = computed(() => {
   const companies = new Set<Company>()
-  softwareDevelopment.categories.forEach((category) => {
+  skills.categories.forEach((category) => {
     category.subcategories.forEach((sub) => {
       sub.skills.forEach((skill) => {
         if (Array.isArray(skill.usedAt)) {
@@ -34,7 +34,7 @@ const companyOptions = computed(() => {
 })
 
 const filteredCategories = computed(() => {
-  return softwareDevelopment.categories
+  return skills.categories
     .map((category) => {
       const filteredSubcategories = category.subcategories
         .map((sub) => {

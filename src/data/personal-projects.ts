@@ -1,4 +1,4 @@
-import { softwareDevelopment } from "@/data/software-development.ts";
+import { skills } from "@/data/skills.ts";
 import type { Project } from "@/models/projects.model.ts";
 
 export const personalProjects: Project[] = [

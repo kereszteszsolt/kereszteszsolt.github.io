@@ -1,5 +1,5 @@
 import type { WorkExperience } from '@/models/skills.model.ts'
-import { softwareDevelopment } from '@/data/software-development.ts'
+import { skills } from '@/data/skills.ts'
 
 const workExperience: WorkExperience[] = [
   {

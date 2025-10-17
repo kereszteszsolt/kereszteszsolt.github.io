@@ -1,6 +1,6 @@
 import type {SkillGroup} from "@/models/skills.model.ts";
 
-export const softwareDevelopment: SkillGroup = {
+export const skills: SkillGroup = {
     title: "Software Development Skills",
     description:
         "A comprehensive overview of my software development skills, categorized for clarity.",

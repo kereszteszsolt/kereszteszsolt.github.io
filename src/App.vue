@@ -1,0 +1,151 @@
+<script setup lang="ts">
+import AppBar from "@/components/layout/AppBar.vue";
+import Footer from "@/components/layout/Footer.vue";
+import {profileInfo} from "@/data/profile-info.ts";
+import {onMounted, ref, onUnmounted} from "vue";
+import HomeScreen from "@/components/screens/HomeScreen.vue";
+import WorkExperienceScreen from "@/components/screens/WorkExperienceScreen.vue";
+import SkillsScreen from "@/components/screens/SkillsScreen.vue";
+import ProjectScreen from "@/components/screens/ProjectScreen.vue";
+import ContactScreen from "@/components/screens/ContactScreen.vue";
+import LegalScreen from "@/components/screens/LegalScreen.vue";
+import type { Company, PersonalProject } from "@/models/skills.model";
+
+const sections = [
+  {id: "home", label: "Home"},
+  {id: "work-experience", label: "Work Experience"},
+  {id: "skills", label: "Skills"},
+  {id: "projects", label: "Projects"},
+  {id: "contact", label: "Contact"},
+  {id: "legal", label: "Legal"},
+];
+
+const activeSection = ref("home");
+const mainElement = ref<HTMLElement | null>(null);
+const skillsScreenRef = ref<InstanceType<typeof SkillsScreen> | null>(null);
+
+function handleNavigate(id: string) {
+  const el = document.getElementById(id);
+  if (el && mainElement.value) {
+    const offsetTop = el.offsetTop - mainElement.value.offsetTop;
+    mainElement.value.scrollTo({
+      top: offsetTop,
+      behavior: "smooth"
+    });
+  }
+}
+
+function updateActiveSection() {
+  if (!mainElement.value) return;
+
+  const scrollPosition = mainElement.value.scrollTop + 150; // Account for AppBar height + offset
+
+  let currentSection = sections[0]?.id || "home";
+
+  for (const section of sections) {
+    const el = document.getElementById(section.id);
+    if (el && mainElement.value) {
+      // Get the element's position relative to the main container
+      const offsetTop = el.offsetTop - mainElement.value.offsetTop;
+      if (scrollPosition >= offsetTop) {
+        currentSection = section.id;
+      }
+    }
+  }
+
+  activeSection.value = currentSection;
+}
+
+function handleShowSkillsForCompany(companyId: string) {
+  if (skillsScreenRef.value) {
+    skillsScreenRef.value.handleShowSkillsForCompany(companyId as Company);
+  }
+}
+
+function handleShowAllWorkSkills() {
+  if (skillsScreenRef.value) {
+    skillsScreenRef.value.handleShowAllWorkSkills();
+  }
+}
+
+function handleShowSkillsForProject(projectId: string) {
+  if (skillsScreenRef.value) {
+    skillsScreenRef.value.handleShowSkillsForProject(projectId as PersonalProject);
+  }
+}
+
+function handleShowAllPersonalProjectsSkills() {
+  if (skillsScreenRef.value) {
+    skillsScreenRef.value.handleShowAllPersonalProjectsSkills();
+  }
+}
+
+onMounted(() => {
+  if (mainElement.value) {
+    mainElement.value.addEventListener("scroll", updateActiveSection);
+ //   updateActiveSection();
+  }
+});
+
+onUnmounted(() => {
+  if (mainElement.value) {
+    mainElement.value.removeEventListener("scroll", updateActiveSection);
+  }
+});
+
+</script>
+
+<template>
+  <div class="flex flex-col h-screen">
+    <AppBar
+        :profile-image="profileInfo.photo"
+        :sections="sections"
+        :active-section="activeSection"
+        :active-section-label="sections.find(s => s.id === activeSection)?.label || ''"
+        @navigate="handleNavigate"
+    />
+    <main ref="mainElement" class="flex-1 overflow-y-auto mt-16">
+      <HomeScreen/>
+      <WorkExperienceScreen
+          @show-skills-for-company="handleShowSkillsForCompany"
+          @show-all-work-skills="handleShowAllWorkSkills"
+          @show-skills-for-project="handleShowSkillsForProject"
+      />
+      <SkillsScreen ref="skillsScreenRef"/>
+      <ProjectScreen
+          @show-skills-for-project="handleShowSkillsForProject"
+          @show-all-personal-projects-skills="handleShowAllPersonalProjectsSkills"
+      />
+      <ContactScreen/>
+      <LegalScreen/>
+    </main>
+    <Footer/>
+  </div>
+</template>
+
+<style scoped>
+main::-webkit-scrollbar {
+    width: 12px;
+    background: var(--color-neutral-variant);
+}
+
+main::-webkit-scrollbar-thumb {
+    background: var(--color-primary-300);
+    border-radius: 999px;
+    border: 3px solid var(--color-neutral-variant);
+    transition: background 0.2s;
+}
+
+main::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-500);
+}
+
+main::-webkit-scrollbar-track {
+    background: var(--color-neutral-variant-darker);
+}
+
+main {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary-300) var(--color-neutral-variant-darker);
+}
+</style>

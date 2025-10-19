@@ -203,13 +203,13 @@ export const skills: SkillGroup = {
                 {
                     title: "LLM APIs",
                     skills: [
-                        {name: "OpenAI (ChatGPT)", usageType: ["personal-projects"]},
-                        {name: "Anthropic (Claude)", usageType: ["experimental"]},
-                        {name: "Perplexity", usageType: ["experimental"]},
-                        {name: "Grok", usageType: ["experimental"]},
-                        {name: "Ollama API", usageType: ["personal-projects"]},
-                        {name: "OpenRouter", usageType: ["experimental"]},
-                        {name: "Microsoft 365 Copilot", usageType: ["work-experience"]},
+                        {name: "OpenAI (ChatGPT)", usageType: ["personal-projects", "general-use"]},
+                        {name: "Anthropic (Claude)", usageType: ["experimental", "general-use"]},
+                        {name: "Perplexity", usageType: ["experimental", "general-use"]},
+                        {name: "Grok", usageType: ["experimental", "general-use"]},
+                        {name: "Ollama API", usageType: ["personal-projects", "general-use"]},
+                        {name: "OpenRouter", usageType: ["experimental", "general-use"]},
+                        {name: "Microsoft 365 Copilot", usageType: ["work-experience", "general-use"]},
                     ],
                 },
                 {
@@ -307,13 +307,21 @@ export const skills: SkillGroup = {
                     ],
                 },
                 {
+                    title: "Writing & Grammar Tools",
+                    skills: [
+                        { name: "Grammarly", usageType: ["general-use"] },
+                        { name: "QuillBot", usageType: ["general-use"] },
+                        { name: "Hemingway Editor", usageType: ["general-use"] },
+                    ],
+                },
+                {
                     title: "Office & Documentation Tools",
                     skills: [
-                        {name: "LibreOffice", usageType: ["personal-projects"]},
-                        {name: "OpenOffice", usageType: ["personal-projects"]},
+                        {name: "LibreOffice", usageType: ["personal-projects", "general-use"]},
+                        {name: "OpenOffice", usageType: ["personal-projects", "general-use"]},
                         {name: "LaTeX", usageType: ["experimental"]},
                         {name: "KaTeX", usageType: ["experimental"]},
-                        {name: "Microsoft 365", usageType: ["work-experience"], usedAt: ['msg-systems']},
+                        {name: "Microsoft 365", usageType: ["work-experience", "general-use"], usedAt: ['msg-systems']},
                     ],
                 },
                 {

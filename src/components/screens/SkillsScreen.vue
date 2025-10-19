@@ -133,6 +133,7 @@ defineExpose({
           <option value="work-experience">Used at Work</option>
           <option value="personal-projects">Personal Projects</option>
           <option value="experimental">Experimental</option>
+          <option value="general-use">General Use</option>
         </select>
 
         <select

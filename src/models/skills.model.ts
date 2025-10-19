@@ -1,4 +1,4 @@
-export type SkillType = 'work-experience' | 'personal-projects' | 'experimental';
+export type SkillType = 'work-experience' | 'personal-projects' | 'experimental' | 'general-use';
 export type UsedAt = 'ikonsoft' | 'msg-systems' | 'personal-projects' | 'content-creation';
 export type Company = 'ikonsoft' | 'msg-systems';
 export type PersonalProject = 'focus-guard' | 'this-website' | 'planning-poker' | 'ollama-chat';

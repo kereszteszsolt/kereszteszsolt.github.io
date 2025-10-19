@@ -28,7 +28,7 @@ export const personalProjects: Project[] = [
         links: [
             {
                 title: "Live Website",
-                url: "https://kereszteszsolt.com",
+                url: "https://www.kereszteszsolt.com",
             },
         ],
         repos: [
@@ -45,10 +45,6 @@ export const personalProjects: Project[] = [
         description:
             "A web-based planning poker app to help agile teams estimate user stories collaboratively.",
         links: [
-            {
-                title: "Live Demo",
-                url: "https://planning-poker-kereszteszsolt.vercel.app/",
-            },
         ],
         repos: [
             {
@@ -64,10 +60,6 @@ export const personalProjects: Project[] = [
         description:
             "This is a chat application that integrates with Ollama's language models to provide AI-powered conversations.",
         links: [
-            {
-                title: "Live Demo",
-                url: "https://ollama-chat-kereszteszsolt.vercel.app/",
-            },
         ],
         repos: [
             {

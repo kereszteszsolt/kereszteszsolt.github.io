@@ -14,15 +14,15 @@ export const skills: SkillGroup = {
                     skills: [
                         {name: "Angular", type: ["work-experience", "personal-projects"], usedAt: ['msg-systems'], personalProjects: ['ollama-chat']},
                         {name: "React", type: ["personal-projects", "work-experience"], usedAt: ['msg-systems'], personalProjects: ['planning-poker']},
-                        {name: "Vue", type: ["experimental"], personalProjects: ['this-website', 'focus-guard']},
-                        {name: "Next.js", type: ["personal-projects"]},
+                        {name: "Vue", type: ["personal-projects"], personalProjects: ['this-website', 'focus-guard']},
+                        {name: "Next.js", type: ["experimental"]},
                         {name: "Vuex", type: ["experimental"]},
-                        {name: "NestJS", type: ["personal-projects"]},
+                        {name: "NestJS", type: ["experimental"]},
                         {name: "Dojo", type: ["work-experience"], usedAt: ['msg-systems']},
                         {name: "PrimeNG", type: ["work-experience"], usedAt: ['msg-systems']},
                         {name: "Angular Material", type: ["work-experience"], usedAt: ['msg-systems']},
                         {name: "React MUI", type: ["personal-projects"], usedAt: ['msg-systems']},
-                        {name: "Vuetify", type: ["experimental"]},
+                        {name: "Vuetify", type: ["personal-projects"], personalProjects: ['ollama-chat']},
                     ],
                 },
                 {
@@ -38,10 +38,10 @@ export const skills: SkillGroup = {
                 {
                     title: "UI & Styling",
                     skills: [
-                        {name: "TailwindCSS", type: ["personal-projects"], usedAt: ['msg-systems']},
+                        {name: "TailwindCSS", type: ["personal-projects", "work-experience"], usedAt: ['msg-systems']},
                         {name: "Bootstrap", type: ["work-experience"]},
                         {name: "Material Design", type: ["work-experience"], usedAt: ['msg-systems']},
-                        {name: "CSS Modules", type: ["experimental"], usedAt: ['msg-systems']},
+                        {name: "CSS", type: ["work-experience", "personal-projects"], usedAt: ['msg-systems']},
                     ],
                 },
             ],
@@ -53,11 +53,11 @@ export const skills: SkillGroup = {
                 {
                     title: "Languages & Frameworks",
                     skills: [
-                        {name: "Java", type: ["work-experience"], usedAt: ['msg-systems']},
+                        {name: "Java", type: ["work-experience"], usedAt: ['msg-systems', 'ikonsoft']},
                         {name: "Java EE", type: ["work-experience"], usedAt: ['msg-systems']},
                         {name: "Spring", type: ["work-experience"], usedAt: ['msg-systems']},
                         {name: "Spring Boot", type: ["work-experience"], usedAt: ['msg-systems']},
-                        {name: "Quarkus", type: ["experimental"], usedAt: ['msg-systems']},
+                        {name: "Quarkus", type: ["work-experience"], usedAt: ['msg-systems']},
                         {name: "Micronaut", type: ["experimental"]},
                         {name: "Python", type: ["personal-projects"], usedAt: ['msg-systems']},
                         {name: "Flask", type: ["personal-projects"], usedAt: ['msg-systems']},
@@ -65,7 +65,7 @@ export const skills: SkillGroup = {
                         {name: "FastAPI", type: ["experimental"]},
                         {name: "Node.js", type: ["personal-projects"]},
                         {name: "Express.js", type: ["personal-projects"]},
-                        {name: "C#", type: ["work-experience"]},
+                        {name: "C#", type: ["work-experience"], usedAt: ['ikonsoft']},
                         {name: ".NET", type: ["work-experience"], usedAt: ['ikonsoft']},
                     ],
                 },
@@ -99,10 +99,7 @@ export const skills: SkillGroup = {
                     title: "Microservices Architecture",
                     skills: [
                         {name: "Microservices", type: ["work-experience"], usedAt: ['msg-systems']},
-                        {
-                            name: "Monolith to Microservices Migration",
-                            type: ["work-experience"],
-                        },
+                        // "Monolith to Microservices Migration" removed per request
                     ],
                 },
             ],
@@ -114,12 +111,13 @@ export const skills: SkillGroup = {
                 {
                     title: "Relational",
                     skills: [
-                        {name: "SQL", type: ["work-experience"], usedAt: ['msg-systems']},
+                        {name: "SQL", type: ["work-experience"], usedAt: ['msg-systems', 'ikonsoft']},
                         {name: "MySQL", type: ["work-experience"], usedAt: ['msg-systems']},
                         {name: "PostgreSQL", type: ["work-experience"], usedAt: ['msg-systems']},
-                        {name: "PL/SQL", type: ["work-experience"], usedAt: ['msg-systems']},
+                        {name: "PL/SQL", type: ["work-experience"], usedAt: ['msg-systems', 'ikonsoft']},
+                        {name: "Oracle APEX", type: ["work-experience"], usedAt: ['ikonsoft']},
                         {name: "MariaDB", type: ["work-experience"]},
-                        {name: "Microsoft SQL Server", type: ["work-experience"]},
+                        {name: "Microsoft SQL Server", type: ["work-experience"], usedAt: ['ikonsoft']},
                         {name: "DB2", type: ["work-experience"], usedAt: ['msg-systems']},
                     ],
                 },
@@ -128,7 +126,7 @@ export const skills: SkillGroup = {
                     skills: [
                         {name: "MongoDB", type: ["personal-projects"]},
                         {name: "Firebase", type: ["personal-projects"]},
-                        {name: "Neo4j", type: ["experimental"], usedAt: ['msg-systems']},
+                        {name: "Neo4j", type: ["work-experience"], usedAt: ['msg-systems']},
                     ],
                 },
                 {
@@ -267,15 +265,15 @@ export const skills: SkillGroup = {
                     title: "Integration & Load Testing",
                     skills: [
                         {name: "Postman", type: ["work-experience"], usedAt: ['msg-systems']},
-                        {name: "LoadTest", type: ["experimental"]},
-                        {name: "LastTest", type: ["experimental"]},
+                        {name: "LoadTest", type: ["work-experience"], usedAt: ['msg-systems']},
+                        {name: "LastTest", type: ["work-experience"], usedAt: ['msg-systems']},
                         {name: "Integration Tests", type: ["work-experience"]},
                     ],
                 },
                 {
                     title: "Automation",
                     skills: [
-                        {name: "Test Automation Pipelines", type: ["work-experience"]},
+                        {name: "Test Automation Pipelines", type: ["work-experience"], usedAt: ['msg-systems']},
                     ],
                 },
             ],
@@ -303,7 +301,7 @@ export const skills: SkillGroup = {
                         {name: "Bitbucket", type: ["work-experience"], usedAt: ['msg-systems']},
                         {name: "GitLab", type: ["work-experience"], usedAt: ['msg-systems']},
                         {name: "Obsidian", type: ["personal-projects"]},
-                        {name: "OneNote", type: ["work-experience"], usedAt: ['msg-systems']},
+                        {name: "OneNote", type: ["work-experience"], usedAt: ['msg-systems', 'ikonsoft']},
                         {name: "XMind", type: ["personal-projects"]},
                         {name: "Mermaid", type: ["personal-projects"]},
                     ],
@@ -371,4 +369,4 @@ export const skills: SkillGroup = {
             ],
         },
     ],
-};
+ };

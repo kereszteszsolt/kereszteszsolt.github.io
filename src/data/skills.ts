@@ -85,7 +85,7 @@ export const skills: SkillGroup = {
                     skills: [
                         {name: "REST API", usageType: ["work-experience"], usedAt: ['msg-systems']},
                         {name: "Swagger", usageType: ["work-experience"], usedAt: ['msg-systems']},
-                        {name: "GraphQL", usageType: ["personal-projects"], usedAt: ['msg-systems']},
+                        {name: "GraphQL", usageType: ["work-experience"], usedAt: ['msg-systems']},
                     ],
                 },
                 {
@@ -174,7 +174,6 @@ export const skills: SkillGroup = {
                 {
                     title: "Infrastructure as Code",
                     skills: [
-                        {name: "Terraform", usageType: ["personal-projects"]},
                         {name: "Nx Monorepo", usageType: ["personal-projects"]},
                     ],
                 },
@@ -215,10 +214,10 @@ export const skills: SkillGroup = {
                 {
                     title: "Frameworks & Tools",
                     skills: [
-                        {name: "LangChain", usageType: ["personal-projects"]},
+                        {name: "LangChain", usageType: ["experimental"]},
                         {name: "LangGraph", usageType: ["experimental"]},
                         {name: "LangSmith", usageType: ["experimental"]},
-                        {name: "RAG", usageType: ["personal-projects"]},
+                        {name: "RAG", usageType: ["experimental"]},
                         {name: "MLOps", usageType: ["experimental"]},
                         {name: "LLM APIs", usageType: ["personal-projects"]},
                     ],
@@ -235,7 +234,7 @@ export const skills: SkillGroup = {
                 {
                     title: "Libraries",
                     skills: [
-                        {name: "NumPy", usageType: ["personal-projects"]},
+                        {name: "NumPy", usageType: ["experimental"]},
                         {name: "SciPy", usageType: ["experimental"]},
                         {name: "scikit-learn", usageType: ["experimental"]},
                         {name: "TensorFlow", usageType: ["experimental"]},
@@ -253,12 +252,12 @@ export const skills: SkillGroup = {
                     skills: [
                         {name: "JUnit", usageType: ["work-experience"], usedAt: ['msg-systems']},
                         {name: "Mockito", usageType: ["work-experience"], usedAt: ['msg-systems']},
-                        {name: "Jest", usageType: ["personal-projects"], usedAt: ['msg-systems']},
+                        {name: "Jest", usageType: ["work-experience"], usedAt: ['msg-systems']},
                         {name: "Jasmine", usageType: ["work-experience"]},
                         {name: "PyUnit", usageType: ["experimental"]},
                         {name: "PyTest", usageType: ["experimental"]},
                         {name: "unittest", usageType: ["experimental"]},
-                        {name: "Cypress", usageType: ["personal-projects"]},
+                        {name: "Cypress", usageType: ["work-experience"]},
                     ],
                 },
                 {
@@ -302,7 +301,6 @@ export const skills: SkillGroup = {
                         {name: "GitLab", usageType: ["work-experience"], usedAt: ['msg-systems']},
                         {name: "Obsidian", usageType: ["personal-projects"]},
                         {name: "OneNote", usageType: ["work-experience"], usedAt: ['msg-systems', 'ikonsoft']},
-                        {name: "XMind", usageType: ["personal-projects"]},
                         {name: "Mermaid", usageType: ["personal-projects"]},
                     ],
                 },
@@ -320,30 +318,28 @@ export const skills: SkillGroup = {
                         {name: "LibreOffice", usageType: ["personal-projects", "general-use"]},
                         {name: "OpenOffice", usageType: ["personal-projects", "general-use"]},
                         {name: "LaTeX", usageType: ["experimental"]},
-                        {name: "KaTeX", usageType: ["experimental"]},
+                        {name: "KaTeX", usageType: ["experimental", 'personal-projects']},
                         {name: "Microsoft 365", usageType: ["work-experience", "general-use"], usedAt: ['msg-systems']},
                     ],
                 },
                 {
                     title: "Design & Graphics",
                     skills: [
-                        {name: "Figma", usageType: ["personal-projects"]},
+                        {name: "Figma", usageType: ["experimental"]},
                         {name: "Penpot", usageType: ["experimental"]},
-                        {name: "Lunacy", usageType: ["personal-projects"]},
-                        {name: "Inkscape", usageType: ["personal-projects"]},
-                        {name: "Gimp", usageType: ["personal-projects"]},
-                        {name: "Krita", usageType: ["personal-projects"]},
-                        {name: "Canva", usageType: ["personal-projects"]},
-                        {name: "Picsart", usageType: ["personal-projects"]},
+                        {name: "Lunacy", usageType: ["experimental"]},
+                        {name: "Inkscape", usageType: ["experimental"]},
+                        {name: "Gimp", usageType: ["experimental"]},
+                        {name: "Krita", usageType: ["experimental"]},
                     ],
                 },
                 {
-                    title: "Media & Video Tools",
+                    title: "Content Creation",
                     skills: [
-                        {name: "Kapwing", usageType: ["personal-projects"]},
-                        {name: "ClipChamp", usageType: ["personal-projects"]},
-                        {name: "Picsart", usageType: ["personal-projects"]},
-                        {name: "Canva", usageType: ["personal-projects"]},
+                        { name: "Kapwing", usageType: ["experimental", "content-creation"] },
+                        { name: "ClipChamp", usageType: ["experimental", "content-creation"] },
+                        { name: "Picsart", usageType: ["experimental", "content-creation"] },
+                        { name: "Canva", usageType: ["experimental", "content-creation"] },
                     ],
                 },
             ],

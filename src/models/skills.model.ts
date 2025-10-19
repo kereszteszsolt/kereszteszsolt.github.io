@@ -6,7 +6,7 @@ export type PersonalProject = 'focus-guard' | 'this-website' | 'planning-poker' 
 export interface Skill {
     name: string;
     icon?: string;
-    type: SkillType[];
+    usageType: SkillType[];
     usedAt?: UsedAt[];
     personalProjects?: PersonalProject[];
     skillCategory?: string;

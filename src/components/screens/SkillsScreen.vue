@@ -49,7 +49,7 @@ const filteredCategories = computed(() => {
           }
           // Only apply type filter if no specific project is selected
           else if (selectedType.value) {
-            skills = skills.filter((skill) => skill.type?.includes(selectedType.value as SkillType))
+            skills = skills.filter((skill) => skill.usageType?.includes(selectedType.value as SkillType))
           }
 
           // Company filter is independent

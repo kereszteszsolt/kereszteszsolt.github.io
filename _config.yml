@@ -1,5 +1,13 @@
 title: kereszteszsolt.net
-description: Keresztes Zsolt's projects hosted on GitHub Pages.
+seo_title: "Keresztes Zsolt's Projects | kereszteszsolt.net"
+description: "Explore ClearField (Minesweeper) and CrownGrid (Queens Game), Keresztes Zsolt's browser-based projects hosted on GitHub Pages."
+lang: en
+author:
+  name: Keresztes Zsolt
+  url: https://kereszteszsolt.hu/
+  github: https://github.com/kereszteszsolt
+social_image: /docs/assets/social-preview.png
+social_image_alt: "Keresztes Zsolt's GitHub Pages projects: ClearField (Minesweeper) and CrownGrid (Queens Game)."
 url: https://kereszteszsolt.net
 baseurl: ""
 theme: jekyll-theme-primer

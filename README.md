@@ -1,4 +1,4 @@
-# kereszteszsolt.net
+# <img src="favicon.svg" width="40" height="40" alt=""> kereszteszsolt.net
 
 **Looking for my personal website? Visit [kereszteszsolt.hu](https://kereszteszsolt.hu/).**
 

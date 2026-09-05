@@ -6,6 +6,8 @@
     <title>{{ site.title | escape }}</title>
     <meta name="description" content="{{ site.description | escape }}">
     <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="16x16 32x32 48x48">
+    <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}" sizes="any">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     <style>
       :root {
@@ -36,6 +38,8 @@
       }
       body { color: var(--page-text); background: var(--page-background); }
       main.markdown-body { max-width: 860px; }
+      .markdown-body h1 { display: flex; align-items: center; gap: 10px; font-size: clamp(24px, 5vw, 32px); }
+      .markdown-body h1 img { flex-shrink: 0; }
       .markdown-body { color: var(--page-text); }
       .markdown-body img { max-width: 100%; height: auto; background: transparent; }
       .markdown-body a { color: var(--page-link); text-underline-offset: 3px; }

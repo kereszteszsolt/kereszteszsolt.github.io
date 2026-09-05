@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ site.title | escape }}</title>
+    <meta name="description" content="{{ site.description | escape }}">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <style>
+      body { color: #1f2328; background: #fff; }
+      main.markdown-body { max-width: 860px; }
+      .markdown-body img { max-width: 100%; height: auto; }
+      .markdown-body a { text-underline-offset: 3px; }
+      .markdown-body a:focus-visible { outline: 2px solid #0969da; outline-offset: 4px; }
+    </style>
+  </head>
+  <body>
+    <main class="container-lg px-3 my-5 markdown-body">
+      {{ content }}
+    </main>
+  </body>
+</html>

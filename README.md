@@ -4,7 +4,7 @@
 
 **kereszteszsolt.net** is the custom domain for [kereszteszsolt.github.io](https://kereszteszsolt.github.io/). This page and all the projects listed below are hosted on GitHub Pages.
 
-[Source code for this page](https://github.com/kereszteszsolt/kereszteszsolt.github.io)
+[GitHub profile](https://github.com/kereszteszsolt) · [Source code for this page](https://github.com/kereszteszsolt/kereszteszsolt.github.io)
 
 ## 🎮 Projects
 

@@ -2,7 +2,9 @@
 
 **Looking for my personal website? Visit [kereszteszsolt.hu](https://kereszteszsolt.hu/).**
 
-This domain is home to my projects deployed on GitHub Pages. This page and all the projects listed below are hosted on GitHub Pages.
+**kereszteszsolt.net** is the custom domain for [kereszteszsolt.github.io](https://kereszteszsolt.github.io/). This page and all the projects listed below are hosted on GitHub Pages.
+
+[Source code for this page](https://github.com/kereszteszsolt/kereszteszsolt.github.io)
 
 ## 🎮 Projects
 

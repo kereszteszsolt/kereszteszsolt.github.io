@@ -1,11 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ site.lang | default: 'en' | escape }}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ site.title | escape }}</title>
+    <title>{{ site.seo_title | default: site.title | escape }}</title>
     <meta name="description" content="{{ site.description | escape }}">
+    <meta name="author" content="{{ site.author.name | escape }}">
+    <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ site.title | escape }}">
+    <meta property="og:title" content="{{ site.seo_title | default: site.title | escape }}">
+    <meta property="og:description" content="{{ site.description | escape }}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:image" content="{{ site.social_image | absolute_url }}">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{{ site.social_image_alt | escape }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ site.seo_title | default: site.title | escape }}">
+    <meta name="twitter:description" content="{{ site.description | escape }}">
+    <meta name="twitter:image" content="{{ site.social_image | absolute_url }}">
+    <meta name="twitter:image:alt" content="{{ site.social_image_alt | escape }}">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": {{ site.title | jsonify }},
+        "url": {{ '/' | absolute_url | jsonify }},
+        "description": {{ site.description | jsonify }},
+        "inLanguage": {{ site.lang | jsonify }},
+        "creator": {
+          "@type": "Person",
+          "name": {{ site.author.name | jsonify }},
+          "url": {{ site.author.url | jsonify }},
+          "sameAs": [{{ site.author.github | jsonify }}]
+        }
+      }
+    </script>
+    <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="16x16 32x32 48x48">
+    <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}" sizes="any">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     <style>
       :root {
@@ -36,6 +71,7 @@
       }
       body { color: var(--page-text); background: var(--page-background); }
       main.markdown-body { max-width: 860px; }
+      .markdown-body h1 img { display: block; max-width: 100%; height: auto; }
       .markdown-body { color: var(--page-text); }
       .markdown-body img { max-width: 100%; height: auto; background: transparent; }
       .markdown-body a { color: var(--page-link); text-underline-offset: 3px; }

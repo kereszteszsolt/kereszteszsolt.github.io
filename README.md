@@ -1,4 +1,4 @@
-# kereszteszsolt.net
+<h1><img src="docs/assets/site-header.svg" width="468" height="44" alt="kereszteszsolt.net"></h1>
 
 **Looking for my personal website? Visit [kereszteszsolt.hu](https://kereszteszsolt.hu/).**
 
